@@ -222,7 +222,7 @@
             backdrop-filter: blur(10px);
         }
         
-        /* Streamings Section */
+        /* Streamings Section - ATUALIZADO */
         .streamings {
             text-align: center;
         }
@@ -243,13 +243,15 @@
         .streaming-logo {
             background-color: var(--bg-card);
             border-radius: 12px;
-            padding: 20px;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            height: 100px;
+            height: 120px;
             backdrop-filter: blur(10px);
+            overflow: hidden;
+            position: relative;
         }
         
         .streaming-logo:hover {
@@ -259,10 +261,14 @@
         }
         
         .streaming-logo img {
-            max-width: 100%;
-            max-height: 60px;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .streaming-logo:hover img {
+            transform: scale(1.05);
         }
         
         /* Content Section */
@@ -632,12 +638,7 @@
             }
             
             .streaming-logo {
-                height: 80px;
-                padding: 15px;
-            }
-            
-            .streaming-logo img {
-                max-height: 50px;
+                height: 100px;
             }
             
             .content-grid {
@@ -689,12 +690,7 @@
             }
             
             .streaming-logo {
-                height: 70px;
-                padding: 10px;
-            }
-            
-            .streaming-logo img {
-                max-height: 40px;
+                height: 80px;
             }
             
             .logo-text {
@@ -767,7 +763,7 @@
         </div>
     </section>
 
-    <!-- Streamings Section -->
+    <!-- Streamings Section - ATUALIZADO -->
     <section class="streamings">
         <div class="container">
             <h2>Todos os principais streamings em um só lugar</h2>
@@ -862,21 +858,21 @@
                         </div>
                     </div>
 
-                    <!--  The Chosen -->
+                    <!-- NOVO: Trembelé -->
                     <div class="content-card">
-                        <img src="https://i.postimg.cc/JnD5DS7J/proxy-image-(2).jpg" alt="Trembelé" class="content-poster" loading="lazy">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZDY3YzM1YTUtYjU5Ny00NzVkLWE4NmEtYjI5MWYyMGJmNzU0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg" alt="Trembelé" class="content-poster" loading="lazy">
                         <div class="content-info">
-                            <div class="content-title">The Chosen <span class="content-badge">4K</span></div>
-                            <div class="content-meta">2017 • Religioso • Série</div>
+                            <div class="content-title">Trembelé <span class="content-badge">4K</span></div>
+                            <div class="content-meta">2024 • Comédia • Série</div>
                         </div>
                     </div>
 
-                    <!-- Frankenstein -->
+                    <!-- NOVO: Aquaman -->
                     <div class="content-card">
-                        <img src="https://i.postimg.cc/DzWXBs9Q/proxy-image-(4).jpg" alt="Aquaman" class="content-poster" loading="lazy">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOTkxZjg2YTYtNjU1OC00NmFiLWE3OGMtY2Y3Y2IzYzE0ZGRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg" alt="Aquaman" class="content-poster" loading="lazy">
                         <div class="content-info">
-                            <div class="content-title">Frankenstein <span class="content-badge">HDR</span></div>
-                            <div class="content-meta">2025 • Terror • Filme</div>
+                            <div class="content-title">Aquaman <span class="content-badge">HDR</span></div>
+                            <div class="content-meta">2023 • Ação • Filme</div>
                         </div>
                     </div>
                 </div>
