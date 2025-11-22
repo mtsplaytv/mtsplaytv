@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTSPLAY TV - Entretenimento Premium Sem Limites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a1128;
+            --secondary: #1a233a;
+            --accent: #0f62fe;
+            --accent-hover: #0043ce;
+            --gold: #ffd700;
+            --text: #ffffff;
+            --text-secondary: #b0b0b0;
+            --bg-light: rgba(255, 255, 255, 0.05);
+            --bg-card: rgba(255, 255, 255, 0.08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1128 0%, #1a233a 50%, #0d1b3a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(15, 98, 254, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(15, 98, 254, 0.4);
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-gold:hover {
+            background-color: #e6c200;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        /* Header Modificado */
+        .topbar {
+            background-color: rgba(10, 17, 40, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+        
+        .topbar.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        
+        .topbar.scrolled {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 10px 0;
+        }
+        
+        .topbar-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        /* LOGO EM TEXTO - TOPO */
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text .white {
+            color: var(--text);
+        }
+        
+        .logo-text .blue {
+            color: var(--accent);
+        }
+        
+        .topbar.scrolled .logo-text {
+            font-size: 1.4rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 17, 40, 0.9), rgba(10, 17, 40, 0.9)),
+                url('https://images.unsplash.com/photo-1616530940355-351fabd9526b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            filter: blur(8px) brightness(0.7);
+            z-index: -1;
+            transform: scale(1.1);
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background-color: var(--bg-light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Streamings Section */
+        .streamings {
+            text-align: center;
+        }
+        
+        .streamings h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .streamings-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .streaming-logo {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            height: 100px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .streaming-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+        
+        .streaming-logo img {
+            max-width: 100%;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background-color: var(--bg-light);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        
+        .content-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .content-poster {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .content-card:hover .content-poster {
+            transform: scale(1.05);
+        }
+        
+        .content-info {
+            padding: 20px;
+        }
+        
+        .content-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .content-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .content-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        /* Plans Section */
+        .plans {
+            text-align: center;
+        }
+        
+        .plans h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .plan-card {
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .plan-card.featured {
+            background: linear-gradient(135deg, var(--bg-card), rgba(15, 98, 254, 0.1));
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--gold);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .plan-period {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .plan-features li i {
+            color: var(--accent);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-light);
+            border-radius: 20px;
+            padding: 60px 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonials h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .testimonial-rating {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ */
+        .faq h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(10, 17, 40, 0.95);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .payment-method {
+            background-color: var(--bg-light);
+            padding: 8px;
+            border-radius: 5px;
+            width: 50px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Notification Toast */
+        .notification-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 300px;
+            z-index: 1000;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .notification-toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .notification-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .notification-text {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .streamings-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .streaming-logo {
+                height: 80px;
+                padding: 15px;
+            }
+            
+            .streaming-logo img {
+                max-height: 50px;
+            }
+            
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plan-card.featured {
+                transform: none;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-container .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .topbar.scrolled .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .streamings-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .streaming-logo {
+                height: 70px;
+                padding: 10px;
+            }
+            
+            .streaming-logo img {
+                max-height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .topbar.scrolled .logo-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="notification-avatar">J</div>
+        <div class="notification-text">
+            <strong>João</strong> de São Paulo acabou de ativar o TESTE
+        </div>
+        <a href="#planos" class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Ver Oferta</a>
+    </div>
+
+    <!-- Topbar com LOGO EM TEXTO -->
+    <div class="topbar" id="topbar">
+        <div class="container">
+            <div class="topbar-content">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="white">MTS</span><span class="blue"> PLAY TV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Entretenimento Premium Sem Limites</h1>
+                <p>+3.000 canais, lançamentos 4K e teste grátis de 4 horas. Ativação em segundos.</p>
+                <div class="btn-container">
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero ativar o TESTE DE 4 HORAS da MTSPLAY TV." class="btn btn-large" target="_blank">QUERO TESTAR 4 HORAS GRÁTIS</a>
+                    <a href="#planos" class="btn btn-large btn-gold">Ver Planos</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-users"></i> +12.000 usuários ativos
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-headset"></i> Suporte 24h
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-bolt"></i> Ativação Imediata
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streamings Section -->
+    <section class="streamings">
+        <div class="container">
+            <h2>Todos os principais streamings em um só lugar</h2>
+            
+            <!-- Primeira linha - 4 streamings -->
+            <div class="streamings-grid">
+                <!-- Netflix -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/153yxWbJ/proxy-image-(2).jpg?w=400&h=400&fit=crop&crop=center" alt="Netflix" loading="lazy">
+                </div>
+                
+                <!-- Disney+ -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/Gt7whC6Z/proxy-image-(3).jpg?w=400&h=400&fit=crop&crop=center" alt="Disney+" loading="lazy">
+                </div>
+                
+                <!-- Prime Video -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/X7ptctRS/proxy-image-(4).jpg?w=400&h=400&fit=crop&crop=center" alt="Prime Video" loading="lazy">
+                </div>
+                
+                <!-- HBO Max -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/LX9bqWkX/proxy-image-(5).jpg?w=400&h=400&fit=crop&crop=center" alt="HBO Max" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- Segunda linha - 4 streamings -->
+            <div class="streamings-grid" style="margin-top: 20px;">
+                <!-- Globoplay -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/RCbDFXWC/proxy-image-(6).jpgw=400&h=400&fit=crop&crop=center" alt="Globoplay" loading="lazy">
+                </div>
+                
+                <!-- Star+ -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/63pM6vwv/proxy-image-(7).jpg?w=400&h=400&fit=crop&crop=center" alt="Star+" loading="lazy">
+                </div>
+                
+                <!-- Apple TV+ -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/tgX5Dxs4/proxy-image-(8).jpg?w=400&h=400&fit=crop&crop=center" alt="Apple TV+" loading="lazy">
+                </div>
+                
+                <!-- Crunchyroll -->
+                <div class="streaming-logo">
+                    <img src="https://i.postimg.cc/GmjNcrYg/proxy-image-(9).jpg?w=400&h=400&fit=crop&crop=center" alt="Crunchyroll" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section - Lançamentos -->
+    <section>
+        <div class="container">
+            <div class="content-section">
+                <h2>Lançamentos & Tops</h2>
+                <div class="content-grid">
+                    <!-- Arcanjo Renegado -->
+                    <div class="content-card">
+                        <img src="https://i.postimg.cc/dtPSrDjp/proxy-image-(10).jpg?w=400&h=600&fit=crop&crop=center" alt="Arcanjo Renegado" class="content-poster" loading="lazy">
+                        <div class="content-info">
+                            <div class="content-title">Arcanjo Renegado <span class="content-badge">4K</span></div>
+                            <div class="content-meta">2024 • Ação • Série</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nossa Culpa -->
+                    <div class="content-card">
+                        <img src="https://i.postimg.cc/y8fPQN04/proxy-image-(11).jpg?w=400&h=600&fit=crop&crop=center" alt="Nossa Culpa" class="content-poster" loading="lazy">
+                        <div class="content-info">
+                            <div class="content-title">Nossa Culpa <span class="content-badge">HDR</span></div>
+                            <div class="content-meta">2023 • Drama • Filme</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stranger Things -->
+                    <div class="content-card">
+                        <img src="https://i.postimg.cc/RVgK9DhJ/proxy-image-(12).jpg?w=400&h=600&fit=crop&crop=center" alt="Noite de Ação" class="content-poster" loading="lazy">
+                        <div class="content-info">
+                            <div class="content-title">Stranger Things <span class="content-badge">4K</span></div>
+                            <div class="content-meta">2025 • Ação • Filme</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Os Donos Do Jogo -->
+                    <div class="content-card">
+                        <img src="https://i.postimg.cc/TPgKy7dH/proxy-image-(13).jpg?w=400&h=600&fit=crop&crop=center" alt="Comédia Romântica" class="content-poster" loading="lazy">
+                        <div class="content-info">
+                            <div class="content-title">Os Donos Do Jogo <span class="content-badge">HD</span></div>
+                            <div class="content-meta">2025 • Drama • Série</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section - Canais -->
+    <section>
+        <div class="container">
+            <div class="content-section">
+                <h2>Canais ao Vivo / Pacotes</h2>
+                <div class="content-grid">
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <i class="fas fa-baseball-ball" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <div class="content-title">Esportes</div>
+                        <div class="content-meta">150 canais</div>
+                    </div>
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <i class="fas fa-child" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <div class="content-title">Infantil</div>
+                        <div class="content-meta">80 canais</div>
+                    </div>
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <div class="content-title">Notícias</div>
+                        <div class="content-meta">60 canais</div>
+                    </div>
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <i class="fas fa-globe-americas" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <div class="content-title">Internacional</div>
+                        <div class="content-meta">200 canais</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://wa.me/5585984377361?text=Olá! Gostaria de ver o catálogo completo da MTSPLAY TV." class="btn" target="_blank">Ver mais no catálogo completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="planos">
+        <div class="container">
+            <h2>Planos Que Cabem No Seu Bolso</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-name">Plano Mensal</div>
+                    <div class="plan-price">R$ 29,90</div>
+                    <div class="plan-period">por mês</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
+                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
+                        <li><i class="fas fa-check"></i> Suporte 24h</li>
+                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
+                    </ul>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero ativar o Plano Mensal da MTSPLAY TV por R$ 29,90." class="btn" target="_blank">Ativar Plano — R$ 29,90</a>
+                </div>
+                <div class="plan-card featured">
+                    <div class="plan-badge">Mais vendido</div>
+                    <div class="plan-name">Plano Trimestral</div>
+                    <div class="plan-price">R$ 79,90</div>
+                    <div class="plan-period">a cada 3 meses</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
+                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
+                        <li><i class="fas fa-check"></i> Suporte 24h prioritário</li>
+                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
+                        <li><i class="fas fa-check"></i> +1 mês grátis por indicação</li>
+                    </ul>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero ativar o Plano Trimestral da MTSPLAY TV por R$ 79,90." class="btn btn-gold" target="_blank">Ativar Plano — R$ 79,90</a>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">Plano Semestral</div>
+                    <div class="plan-price">R$ 139,90</div>
+                    <div class="plan-period">a cada 6 meses</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
+                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
+                        <li><i class="fas fa-check"></i> Suporte 24h prioritário</li>
+                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
+                        <li><i class="fas fa-check"></i> 5 indicações = 1 mês grátis</li>
+                    </ul>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero ativar o Plano Semestral da MTSPLAY TV por R$ 139,90." class="btn" target="_blank">Ativar Plano — R$ 139,90</a>
+                </div>
+            </div>
+            <p style="margin-top: 30px; color: var(--text-secondary);">
+                Pagamento seguro — Suporte imediato — Cancelamento a qualquer momento
+            </p>
+            <div class="payment-methods" style="justify-content: center; margin-top: 20px;">
+                <div class="payment-method">
+                    <i class="fab fa-cc-pix" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-visa" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-paypal" style="font-size: 1.5rem;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container">
+            <div class="testimonials">
+                <h2>Aprovado Por Quem Exige Qualidade</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Melhor app que já usei. Zero travamentos."</p>
+                        <p class="testimonial-author">Lucas P.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Suporte respondeu em menos de 1 minuto. Recomendo."</p>
+                        <p class="testimonial-author">Amanda R.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Conteúdo sempre atualizado e qualidade excelente."</p>
+                        <p class="testimonial-author">Carlos M.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Como funciona o teste gratuito?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O teste gratuito de 4 horas é liberado imediatamente após o contato via WhatsApp. Você recebe acesso completo a todos os canais e conteúdos durante esse período para testar a qualidade e estabilidade do serviço sem nenhum custo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quanto custa depois do teste gratuito?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Após o teste, você pode escolher entre nossos planos mensal (R$ 29,90), trimestral (R$ 79,90) ou semestral (R$ 139,90). Não há cobrança automática após o teste - a assinatura só é feita se você decidir continuar com o serviço.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Como faço para cancelar?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O cancelamento pode ser feito a qualquer momento através do nosso suporte via WhatsApp. Não há fidelidade e o reembolso é proporcional caso você cancele no meio de um período já pago. Nosso time está disponível 24h para ajudar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Em quais dispositivos o MTSPLAY funciona?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O MTSPLAY TV funciona em Smart TVs (todas as marcas), TV Box, Android, iPhone, tablets, notebooks e PCs. Fornecemos o aplicativo e instruções de instalação para cada dispositivo. Suporte técnico incluso para ajudar na configuração.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        O conteúdo é atualizado regularmente?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Nosso catálogo é atualizado diariamente com novos filmes, séries e canais. Você terá acesso aos lançamentos em qualidade 4K assim que estiverem disponíveis, além de +3.000 canais ao vivo de diversos países.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Qual a qualidade de transmissão?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabalhamos com qualidade Full HD e 4K em todos os nossos servidores. A qualidade se adapta automaticamente à sua conexão de internet, garantindo a melhor experiência possível sem travamentos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer com LOGO ORIGINAL -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="https://i.postimg.cc/Pf60G6tZ/Crie-uma-marca-d-agua-profissional-com-fundo-escuro-(azul-escuro-quase-preto)-contendo-o-texto-MTS.jpg" alt="MTSPLAY TV" style="width: 150px; margin-bottom: 20px;">
+                    <p style="color: var(--text-secondary);">Entretenimento premium sem limites para você e sua família.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#">Catálogo</a></li>
+                        <li><a href="https://wa.me/5585984377361" target="_blank">Suporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/5585984377361" target="_blank">Wa.me/5585984377361</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mtsplaytv@gmail.com">mtsplaytv@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <i class="fab fa-cc-pix"></i>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fab fa-cc-visa"></i>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fab fa-cc-mastercard"></i>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                MTSPLAY TV — Entretenimento Sem Limites © 2025 — Política de Privacidade — Termos de Uso
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const topbar = document.getElementById('topbar');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topbar.classList.add('scrolled');
+                
+                // Esconder ao rolar para baixo
+                if (window.scrollY > lastScrollY) {
+                    topbar.classList.add('hidden');
+                } else {
+                    // Mostrar ao rolar para cima
+                    topbar.classList.remove('hidden');
+                }
+            } else {
+                // No topo - mostrar header completo
+                topbar.classList.remove('scrolled');
+                topbar.classList.remove('hidden');
+            }
+            
+            lastScrollY = window.scrollY;
+        });
+
+        // Notification Toast
+        const notificationToast = document.getElementById('notificationToast');
+        const notifications = [
+            "João de São Paulo acabou de ativar o TESTE",
+            "Maria do Rio acabou de comprar Plano Mensal — R$29,90",
+            "Carlos de Minas ativou o Plano Trimestral",
+            "Ana de Brasília acabou de testar 4h grátis",
+            "Pedro de Salvador comprou Plano Semestral",
+            "Juliana de Curitiba ativou teste gratuito"
+        ];
+        
+        function showRandomNotification() {
+            const randomIndex = Math.floor(Math.random() * notifications.length);
+            const notificationText = document.querySelector('.notification-text');
+            const notificationAvatar = document.querySelector('.notification-avatar');
+            
+            const name = notifications[randomIndex].split(' ')[0];
+            notificationAvatar.textContent = name.charAt(0);
+            notificationText.innerHTML = `<strong>${name}</strong> ${notifications[randomIndex].substring(notifications[randomIndex].indexOf(' ') + 1)}`;
+            
+            notificationToast.classList.add('show');
+            
+            setTimeout(() => {
+                notificationToast.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Show first notification after 3 seconds
+        setTimeout(showRandomNotification, 3000);
+        
+        // Show subsequent notifications every 15-25 seconds
+        setInterval(showRandomNotification, Math.floor(Math.random() * 10000) + 15000);
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
