@@ -1,73 +1,73 @@
 <!DOCTYPE html>
-<HTML língua="pt-BR">
-<caboça>
-    <meta conjunto de caracteres="UTF-8">
-    <meta nome="janela de visualização" conteúdo="largura=largura do dispositivo, escala inicial=1,0">
-    <título>MTSPLAY TV - Entretenimento Premium Sem Limites</título>
-    <link relação="pré-conexão" href="https://fonts.googleapis.com">
-    <link relação="pré-conexão" href="https://fonts.gstatic.com" origem cruzada>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTSPLAY TV - Entretenimento Premium Sem Limites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link relação="folha de estilo" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <estilo>
- :raiz {
- --primário: #0a1128;
- --secundário: #1a233a;
- --acento: #0f62fe;
- --acento-hover: #0043ce;
- --ouro: #ffd700;
- --texto: #ffffff;
- --texto-secundário: #b0b0b0;
- --luz de fundo: RGBA(255, 255, 255, 0,05);
- --cartão de fundo: RGBA(255, 255, 255, 0,08);
- --sombra: 0 10px 30px RGBA(0, 0, 0, 0,3);
- --transição: tudo 0,3s facilidade;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a1128;
+            --secondary: #1a233a;
+            --accent: #0f62fe;
+            --accent-hover: #0043ce;
+            --gold: #ffd700;
+            --text: #ffffff;
+            --text-secondary: #b0b0b0;
+            --bg-light: rgba(255, 255, 255, 0.05);
+            --bg-card: rgba(255, 255, 255, 0.08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
         }
         
- * {
- margem: 0;
- enchimento: 0;
- dimensionamento de caixa: caixa de fronteira;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
- corpo {
- família de fontes: 'Inter', sem serifa;
- fundo: gradiente linear(135graus, #0a1128 0%, #1a233a 50%, #0d1b3a 100%);
- cor: var(--texto);
- alta da linha: 1,6;
- transbordamento-x: escondido;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1128 0%, #1a233a 50%, #0d1b3a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
- h1, h2, h3, h4, h5 {
- família de fontes: 'Poppins', sem serifa;
- peso da fonte: 700;
- alta da linha: 1.2;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
         
- .destinatário {
- largura: 100%;
- largura máxima: 1200px;
- margem: 0 auto;
- enchimento: 0 20px;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
- sessão {
- enchimento: 80px 0;
+        section {
+            padding: 80px 0;
         }
         
- .btn {
- exibir: bloco em linha;
- cor de fundo: var(--acento);
- cor: branco;
- enchimento: 15px 30px;
- raio de borda: 50px;
- decoração de texto: nenhum;
- peso da fonte: 600;
- tamanho da fonte: 1.1rem;
- transição: var(--transição);
- alinhamento de texto: centro;
- fronteira: nenhum;
- cursor: ponteiro;
- caixa-sombra: 0 4px 15px RGBA(15, 98, 254, 0,3);
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(15, 98, 254, 0.3);
         }
         
         .btn:hover {
@@ -590,7 +590,7 @@
             font-size: 0.9rem;
         }
         
-        /* Notification Toast */
+        /* Notification Toast - ATUALIZADO */
         .notification-toast {
             position: fixed;
             bottom: 20px;
@@ -615,19 +615,20 @@
         }
         
         .notification-avatar {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background-color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.8rem;
         }
         
         .notification-text {
             flex: 1;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         /* Responsive */
@@ -701,6 +702,12 @@
             .payment-text {
                 margin-left: 0;
             }
+            
+            .notification-toast {
+                max-width: 220px;
+                left: 10px;
+                bottom: 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -724,6 +731,17 @@
             
             .topbar.scrolled .logo-text {
                 font-size: 1rem;
+            }
+            
+            .notification-toast {
+                max-width: 200px;
+                padding: 10px;
+            }
+            
+            .notification-avatar {
+                width: 25px;
+                height: 25px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -1159,74 +1177,74 @@
                 topbar.classList.remove('hidden');
             }
             
- último rolagem = Janela.rolante;último rolagem = Janela.rolante;
- });});
+            lastScrollY = window.scrollY;
+        });
 
- // Brinde de notificação// Brinde de Notificação
- const notificaçãoToast = documento.obterElementoPorId('notificaçãoToast');const notificationToast = document.getElementById('notificationToast');
- const notificações = [const notificações = [
- "João de São Paulo Acabou de Ativar o TESTE","João de São Paulo Acabou de Ativar o TESTE",
- "Maria do Rio Acabou de comprar Plano Mensal — R$ 29,90","Maria do Rio Acabou de comprar Plano Mensal — R$ 29,90",
- "Carlos de Minas ativou o Plano Trimestral","Carlos de Minas ativou o Plano Trimestral",
- "Ana de Brasília cabo de teste 4h grátis","Ana de Brasília Acabou de testar 4h grátis",
- "Pedro de Salvador comprou Plano Semestral","Pedro de Salvador comprou Plano Semestral",
- "Juliana de Curitiba ativou teste gratuito""Juliana de Curitiba ativou teste gratuito"
- ];];];];
+        // Notification Toast
+        const notificationToast = document.getElementById('notificationToast');
+        const notifications = [
+            "João de São Paulo acabou de ativar o TESTE",
+            "Maria do Rio acabou de comprar Plano Mensal — R$29,90",
+            "Carlos de Minas ativou o Plano Trimestral",
+            "Ana de Brasília acabou de testar 4h grátis",
+            "Pedro de Salvador comprou Plano Semestral",
+            "Juliana de Curitiba ativou teste gratuito"
+        ];
         
- diversidade maisrarNotificaçãoAleatória() {função maisrarNotificaçãoAleatória() {diversão mostrarNotificaçãoAleatória() {função mostrarNotificaçãoAleatória() {
- const Índice aleatório = Matemática.chão(Matemática.aleatório() * notificações.comprimento);const randomIndex = Math.floor(Math.random() * notificações.length);const Índice aleatório = Matemática.chão(Matemática.aleatório() * notificações.comprimento);const randomIndex = Math.floor(Math.random() * notifications.length);
- const texto de notificação = documento.seletor de consulta('.texto de notificação');const notificationText = document.querySelector('.notification-text');const texto de notificação = documento.seletor de consulta('.texto de notificação');const notificationText = document.querySelector('.notification-text');
- const notificaçãoAvatar = documento.seletor de consulta('.avatar de notificação');const notificaçãoAvatar = documento.querySelector('.notification-avatar');const notificaçãoAvatar = documento.seletor de consulta('.avatar de notificação');const notificationAvatar = document.querySelector('.notification-avatar');
+        function showRandomNotification() {
+            const randomIndex = Math.floor(Math.random() * notifications.length);
+            const notificationText = document.querySelector('.notification-text');
+            const notificationAvatar = document.querySelector('.notification-avatar');
             
- const nome = notificações[Índice aleatório].dividir(' ')[0];const nome = notificações[randomIndex].split(' ')[0];const nome = notificações[Índice aleatório].dividir(' ')[0];const nome = notificações[randomIndex].split(' ')[0];
- notificaçãoAvatar.textoConteúdo = nome.charAt(0);notificaçãoAvatar.textoConteúdo = nome.charAt(0);notificaçãoAvatar.textoConteúdo = nome.charAt(0);notificaçãoAvatar.textoConteúdo = name.charAt(0);
- texto de notificação.HTML interno = `<forte>${nome}</forte> ${notificações[Índice aleatório].substring(notifications[randomIndex].indexOf(' ') + 1)}`;notificationText.innerHTML = `<strong>${name}</strong> ${notifications[randomIndex].substring(notifications[randomIndex].indexOf(' ') + 1)}`;texto de notificação.HTML interno = `<forte>${nome}</forte> ${notificações[Índice aleatório].substring(notifications[randomIndex].indexOf(' ') + 1)}`;notificationText.innerHTML = `<strong>${name}</strong> ${notifications[randomIndex].substring(notifications[randomIndex].indexOf(' ') + 1)}`;
+            const name = notifications[randomIndex].split(' ')[0];
+            notificationAvatar.textContent = name.charAt(0);
+            notificationText.innerHTML = `<strong>${name}</strong> ${notifications[randomIndex].substring(notifications[randomIndex].indexOf(' ') + 1)}`;
             
- notificaçãoToast.lista de classes.adicionar('mostrar');notificaçãoToast.lista de classes.adicionar('show');notificaçãoToast.lista de classes.adicionar('mostrar');notificaçãoToast.lista de classes.adicionar('show');
+            notificationToast.classList.add('show');
             
- definirTempo limite(() => {definirTempo limite(() => {definirTempo limite(() => {definirTempo limite(() => {
- notificaçãoToast.lista de classes.remover('mostrar');notificaçãoToast.lista de classes.remove('show');notificaçãoToast.lista de classes.remover('mostrar');notificaçãoToast.lista de classes.remove('show');
- }, 5000);}, 5000);}, 5000);}, 5000);
+            setTimeout(() => {
+                notificationToast.classList.remove('show');
+            }, 5000);
         }
         
- // Mostrar primeira notificação após 3 segundos// Mostrar primeira notificação após 3 segundos// Mostrar primeira notificação após 3 segundos// Mostrar primeira notificação após 3 segundos
- definirTempo limite(maisNotificaçãoAleatória, 3000);definirTempo limite(mostrarNotificaçãoAleatória, 3000);definirTempo limite(maisNotificaçãoAleatória, 3000);definirTempo limite(mostrarNotificaçãoAleatória, 3000);
+        // Show first notification after 3 seconds
+        setTimeout(showRandomNotification, 3000);
         
- // Mostrar notificações subsequentes a cada 15-25 segundos// Mostrar notificações subsequentes a cada 15-25 segundos// Mostrar notificações subsequentes a cada 15-25 segundos// Mostrar notificações subsequentes a cada 15-25 segundos
- definirIntervalo(mostrarNotificaçãoAleatória, Matemática.chão(Matemática.aleatório() * 10.000) + 15000);setInterval(showRandomNotification, Math.floor(Math.random() * 10000) + 15000);definirIntervalo(mostrarNotificaçãoAleatória, Matemática.chão(Matemática.aleatório() * 10.000) + 15000);setInterval(showRandomNotification, Math.floor(Math.random() * 10000) + 15000);
+        // Show subsequent notifications every 15-25 seconds
+        setInterval(showRandomNotification, Math.floor(Math.random() * 10000) + 15000);
         
- // Perguntas frequentes Acordeão// FAQ Acordeão// Perguntas frequentes Acordeão// FAQ Acordeão
- const itens de perguntas frequentes = documento.consultaSelectorAll('.faq-item');const itens de perguntas frequentes = document.querySelectorAll('.faq-item');const itens de perguntas frequentes = documento.consultaSelectorAll('.faq-item');const itens de perguntas frequentes = document.querySelectorAll('.faq-item');
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
         
- itens de perguntas frequentes.para cada um(item => {itens de perguntas frequentes.para cada um(item => {itens de perguntas frequentes.para cada um(item => {itens de perguntas frequentes.para cada um(item => {
- const pergunta = item.seletor de consulta('.faq-pergunta');const pergunta = item.querySelector('.faq-question');const pergunta = item.seletor de consulta('.faq-pergunta');const pergunta = item.querySelector('.faq-question');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
             
- pergunta.addEventListener('camarilha', () => {pergunta.addEventListener('clique', () => {pergunta.addEventListener('camarilha', () => {pergunta.addEventListener('clique', () => {
- // Feche todos os outros itens// Feche todos os outros itens// Feche todos os outros itens// Feche todos os outros itens
- itens de perguntas frequentes.para cada um(item final => {itens de perguntas frequentes.para cada um(outro item => {itens de perguntas frequentes.para cada um(item final => {itens de perguntas frequentes.para cada um(outro item => {
- se (item final!== item) {se (outro item!== item) {se (item final!== item) {se (outro item !== item) {
- outro item.lista de classes.remover('ativo');outro item.lista de classes.remover('ativo');outro item.lista de classes.remover('ativo');outro item.lista de classes.remover('ativo');
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
                     }
- });});});});
+                });
                 
- // Item alternativo atual// Item alternativo atual// Item alternativo atual// Alternar item atual
- item.lista de classes.alternar('ativo');item.lista de classes.alternar('ativo');item.lista de classes.alternar('ativo');item.lista de classes.alternar('ativo');
- });});});});
- });});});});
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
 
- // Rolagem suave para links âncora// Rolagem suave para links âncora// Rolagem suave para links âncora// Rolagem suave para links âncora
- documento.consultaSelectorAll('a[href^="#"]').para cada um(âncora => {documento.consultaSelectorAll('a[href^="#"]').forEach(âncora => {documento.consultaSelectorAll('a[href^="#"]').para cada um(âncora => {documento.consultaSelectorAll('a[href^="#"]').forEach(anchor => {
- âncora.addEventListener('camarilha', diversidade (e) {âncora.addEventListener('clique', function (e) {âncora.addEventListener('camarilha', diversão (e) {âncora.addEventListener('clique', function (e) {
- e.prevenirPadrão();e.prevenirPadrão();e.prevenirPadrão();e.prevenirPadrão();
- const alvo = documento.seletor de consulta(este.obterAtributo('href'));const alvo = document.querySelector(this.getAttribute('href'));const alvo = documento.seletor de consulta(este.obterAtributo('href'));const alvo = document.querySelector(this.getAttribute('href'));
- se (alto) {se (alvo) {se (alto) {se (alvo) {
- alto.rolar para dentro da visualização({alvo.rolar para dentro da visualização({alto.rolar para dentro da visualização({alvo.rolar para dentro da visualização({
- comportamento: 'suave',comportamento: 'suave',comportamento: 'suave',comportamento: 'suave',
- bloco: 'iniciar'bloquear: 'começar'bloco: 'iniciar'bloquear: 'começar'
- });});});});
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
- });});});});
- });});});});
- </roteiro></roteiro>/roteiro></roteiro>
-</corpo>/corpo>
- </HTML>/HTML>
+            });
+        });
+    </script>
+</body>
+</html>
