@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTSPLAY TV - Entretenimento Premium Sem Limites</title>
+    <title>MTSPLAY TV - Streaming Premium com +3.000 Canais e Teste Grátis</title>
+    <meta name="description" content="MTSPLAY TV - Assista a +3.000 canais, filmes e séries em 4K. Teste grátis de 4 horas. Planos a partir de R$ 29,90. Ativação imediata!">
+    <meta name="keywords" content="streaming, canais, filmes, séries, mtsplay tv, teste grátis, entretenimento">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -550,13 +552,6 @@
             color: var(--text-secondary);
         }
         
-        .payment-text {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -565,7 +560,7 @@
             font-size: 0.9rem;
         }
         
-        /* Notification Toast - ATUALIZADO */
+        /* Notification Toast - TAMANHO NORMAL */
         .notification-toast {
             position: fixed;
             bottom: 20px;
@@ -577,7 +572,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            max-width: 250px;
+            max-width: 260px;
             z-index: 1000;
             transform: translateX(-100%);
             opacity: 0;
@@ -604,6 +599,7 @@
         .notification-text {
             flex: 1;
             font-size: 0.8rem;
+            line-height: 1.4;
         }
         
         /* Responsive */
@@ -665,7 +661,7 @@
             }
             
             .notification-toast {
-                max-width: 220px;
+                max-width: 240px;
                 left: 10px;
                 bottom: 10px;
             }
@@ -690,7 +686,7 @@
             }
             
             .notification-toast {
-                max-width: 200px;
+                max-width: 220px;
                 padding: 10px;
             }
             
@@ -703,7 +699,7 @@
     </style>
 </head>
 <body>
-    <!-- Notification Toast -->
+    <!-- Notification Toast TAMANHO NORMAL -->
     <div class="notification-toast" id="notificationToast">
         <div class="notification-avatar">J</div>
         <div class="notification-text">
@@ -724,11 +720,11 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>Entretenimento Premium Sem Limites</h1>
+                <h1>MTSPLAY TV - ENTRETENIMENTO PREMIUM</h1>
                 <p>+3.000 canais, lançamentos 4K e teste grátis de 4 horas. Ativação em segundos.</p>
                 <div class="btn-container">
                     <a href="https://wa.me/5585984377361?text=Olá! Quero ativar o TESTE DE 4 HORAS da MTSPLAY TV." class="btn btn-large" target="_blank">QUERO TESTAR 4 HORAS GRÁTIS</a>
@@ -756,9 +752,9 @@
             
             <!-- Primeira linha - 4 streamings -->
             <div class="streamings-grid">
-                <!-- Netflix -->
+                <!-- Netflix ATUALIZADO -->
                 <div class="streaming-logo">
-                    <img src="https://i.postimg.cc/153yxWbJ/proxy-image-(2).jpg?w=400&h=400&fit=crop&crop=center" alt="Netflix" loading="lazy">
+                    <img src="https://i.postimg.cc/d1yC04h2/proxy-image-(5).jpg" alt="Netflix" loading="lazy">
                 </div>
                 
                 <!-- Disney+ -->
@@ -766,9 +762,9 @@
                     <img src="https://i.postimg.cc/Gt7whC6Z/proxy-image-(3).jpg?w=400&h=400&fit=crop&crop=center" alt="Disney+" loading="lazy">
                 </div>
                 
-                <!-- Prime Video -->
+                <!-- Prime Video ATUALIZADO -->
                 <div class="streaming-logo">
-                    <img src="https://i.postimg.cc/X7ptctRS/proxy-image-(4).jpg?w=400&h=400&fit=crop&crop=center" alt="Prime Video" loading="lazy">
+                    <img src="https://i.postimg.cc/dVVTCq7v/proxy-image-(6).jpg" alt="Prime Video" loading="lazy">
                 </div>
                 
                 <!-- HBO Max -->
@@ -794,71 +790,71 @@
                     <img src="https://i.postimg.cc/tgX5Dxs4/proxy-image-(8).jpg?w=400&h=400&fit=crop&crop=center" alt="Apple TV+" loading="lazy">
                 </div>
                 
-                <!-- Crunchyroll -->
+                <!-- Crunchyroll ATUALIZADO -->
                 <div class="streaming-logo">
-                    <img src="https://i.postimg.cc/GmjNcrYg/proxy-image-(9).jpg?w=400&h=400&fit=crop&crop=center" alt="Crunchyroll" loading="lazy">
+                    <img src="https://i.postimg.cc/WbtbS4vS/proxy-image-(8).jpg" alt="Crunchyroll" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section - Lançamentos -->
-    <section>
+    <!-- Content Section - Filmes e Séries Lançamentos -->
+    <section id="catalogo">
         <div class="container">
             <div class="content-section">
-                <h2>Lançamentos & Tops</h2>
+                <h2>Filmes e Séries - Lançamentos</h2>
                 <div class="content-grid">
-                    <!-- Arcanjo Renegado -->
+                    <!-- Arcanjo Renegado 2025 -->
                     <div class="content-card">
                         <img src="https://i.postimg.cc/dtPSrDjp/proxy-image-(10).jpg?w=400&h=600&fit=crop&crop=center" alt="Arcanjo Renegado" class="content-poster" loading="lazy">
                         <div class="content-info">
                             <div class="content-title">Arcanjo Renegado <span class="content-badge">4K</span></div>
-                            <div class="content-meta">2024 • Ação • Série</div>
+                            <div class="content-meta">2025 • Ação • Série</div>
                         </div>
                     </div>
                     
-                    <!-- Nossa Culpa -->
+                    <!-- Nossa Culpa 2025 -->
                     <div class="content-card">
                         <img src="https://i.postimg.cc/y8fPQN04/proxy-image-(11).jpg?w=400&h=600&fit=crop&crop=center" alt="Nossa Culpa" class="content-poster" loading="lazy">
                         <div class="content-info">
                             <div class="content-title">Nossa Culpa <span class="content-badge">HDR</span></div>
-                            <div class="content-meta">2023 • Drama • Filme</div>
+                            <div class="content-meta">2025 • Drama • Romance</div>
                         </div>
                     </div>
                     
-                    <!-- Stranger Things -->
+                    <!-- Stranger Things 2025 -->
                     <div class="content-card">
-                        <img src="https://i.postimg.cc/RVgK9DhJ/proxy-image-(12).jpg?w=400&h=600&fit=crop&crop=center" alt="Noite de Ação" class="content-poster" loading="lazy">
+                        <img src="https://i.postimg.cc/RVgK9DhJ/proxy-image-(12).jpg?w=400&h=600&fit=crop&crop=center" alt="Stranger Things" class="content-poster" loading="lazy">
                         <div class="content-info">
                             <div class="content-title">Stranger Things <span class="content-badge">4K</span></div>
-                            <div class="content-meta">2025 • Ação • Filme</div>
+                            <div class="content-meta">2025 • Ficção • Série</div>
                         </div>
                     </div>
                     
-                    <!-- Os Donos Do Jogo -->
+                    <!-- Os Donos Do Jogo 2025 -->
                     <div class="content-card">
-                        <img src="https://i.postimg.cc/TPgKy7dH/proxy-image-(13).jpg?w=400&h=600&fit=crop&crop=center" alt="Comédia Romântica" class="content-poster" loading="lazy">
+                        <img src="https://i.postimg.cc/TPgKy7dH/proxy-image-(13).jpg?w=400&h=600&fit=crop&crop=center" alt="Os Donos Do Jogo" class="content-poster" loading="lazy">
                         <div class="content-info">
                             <div class="content-title">Os Donos Do Jogo <span class="content-badge">HD</span></div>
                             <div class="content-meta">2025 • Drama • Série</div>
                         </div>
                     </div>
 
-                    <!-- NOVO: Trembelé -->
+                    <!-- Tremembé 2025 -->
                     <div class="content-card">
-                        <img src="https://m.media-amazon.com/images/M/MV5BZDY3YzM1YTUtYjU5Ny00NzVkLWE4NmEtYjI5MWYyMGJmNzU0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg" alt="Trembelé" class="content-poster" loading="lazy">
+                        <img src="https://i.postimg.cc/sDwbmc2t/proxy-image-(7).jpg" alt="Tremembé" class="content-poster" loading="lazy">
                         <div class="content-info">
-                            <div class="content-title">Trembelé <span class="content-badge">4K</span></div>
-                            <div class="content-meta">2024 • Comédia • Série</div>
+                            <div class="content-title">Tremembé <span class="content-badge">4K</span></div>
+                            <div class="content-meta">2025 • Drama • Série</div>
                         </div>
                     </div>
 
-                    <!-- NOVO: Aquaman -->
+                    <!-- Frankenstein 2025 -->
                     <div class="content-card">
-                        <img src="https://m.media-amazon.com/images/M/MV5BOTkxZjg2YTYtNjU1OC00NmFiLWE3OGMtY2Y3Y2IzYzE0ZGRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg" alt="Aquaman" class="content-poster" loading="lazy">
+                        <img src="https://i.postimg.cc/DzWXBs9Q/proxy-image-(4).jpg" alt="Frankenstein" class="content-poster" loading="lazy">
                         <div class="content-info">
-                            <div class="content-title">Aquaman <span class="content-badge">HDR</span></div>
-                            <div class="content-meta">2023 • Ação • Filme</div>
+                            <div class="content-title">Frankenstein <span class="content-badge">HDR</span></div>
+                            <div class="content-meta">2025 • Drama • Terror</div>
                         </div>
                     </div>
                 </div>
@@ -866,31 +862,41 @@
         </div>
     </section>
 
-    <!-- Content Section - Canais -->
+    <!-- Content Section - Canais ATUALIZADO -->
     <section>
         <div class="container">
             <div class="content-section">
                 <h2>Canais ao Vivo / Pacotes</h2>
                 <div class="content-grid">
                     <div class="content-card" style="text-align: center; padding: 30px;">
-                        <i class="fas fa-baseball-ball" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">⚽</span>
                         <div class="content-title">Esportes</div>
                         <div class="content-meta">150 canais</div>
                     </div>
                     <div class="content-card" style="text-align: center; padding: 30px;">
-                        <i class="fas fa-child" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">🧒</span>
                         <div class="content-title">Infantil</div>
                         <div class="content-meta">80 canais</div>
                     </div>
                     <div class="content-card" style="text-align: center; padding: 30px;">
-                        <i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">📰</span>
                         <div class="content-title">Notícias</div>
                         <div class="content-meta">60 canais</div>
                     </div>
                     <div class="content-card" style="text-align: center; padding: 30px;">
-                        <i class="fas fa-globe-americas" style="font-size: 3rem; margin-bottom: 15px; color: var(--accent);"></i>
-                        <div class="content-title">Internacional</div>
-                        <div class="content-meta">200 canais</div>
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">📺</span>
+                        <div class="content-title">Novelas</div>
+                        <div class="content-meta">350 canais</div>
+                    </div>
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">🎬</span>
+                        <div class="content-title">Documentários</div>
+                        <div class="content-meta">160 canais</div>
+                    </div>
+                    <div class="content-card" style="text-align: center; padding: 30px;">
+                        <span style="font-size: 3rem; margin-bottom: 15px; display: block;">🔞</span>
+                        <div class="content-title">Adulto</div>
+                        <div class="content-meta">360 canais</div>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 30px;">
@@ -951,7 +957,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section ATUALIZADO -->
     <section>
         <div class="container">
             <div class="testimonials">
@@ -989,6 +995,17 @@
                         </div>
                         <p class="testimonial-text">"Conteúdo sempre atualizado e qualidade excelente."</p>
                         <p class="testimonial-author">Carlos M.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Instalei em 3 TVs e funciona perfeitamente em todas."</p>
+                        <p class="testimonial-author">Roberta S.</p>
                     </div>
                 </div>
             </div>
@@ -1069,10 +1086,10 @@
                 <div class="footer-column">
                     <h3>Links Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Início</a></li>
+                        <li><a href="#inicio">Início</a></li>
                         <li><a href="#planos">Planos</a></li>
-                        <li><a href="#">Catálogo</a></li>
-                        <li><a href="https://wa.me/5585984377361" target="_blank">Suporte</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="https://wa.me/5585984377361?text=Olá! Preciso de suporte para a MTSPLAY TV." target="_blank">Suporte</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1088,15 +1105,12 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/5585984377361" target="_blank">Wa.me/5585984377361</a>
+                            <a href="https://wa.me/5585984377361?text=Olá! Preciso de suporte para a MTSPLAY TV." target="_blank">Wa.me/5585984377361</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <a href="mailto:mtsplaytv@gmail.com">mtsplaytv@gmail.com</a>
                         </div>
-                    </div>
-                    <div class="payment-text">
-                        Pagamento seguro via Pix
                     </div>
                 </div>
             </div>
@@ -1139,30 +1153,51 @@
             "Carlos de Minas ativou o Plano Trimestral",
             "Ana de Brasília acabou de testar 4h grátis",
             "Pedro de Salvador comprou Plano Semestral",
-            "Juliana de Curitiba ativou teste gratuito"
+            "Juliana de Curitiba ativou teste gratuito",
+            "Ricardo de Porto Alegre comprou Plano Mensal",
+            "Fernanda de Belo Horizonte ativou Plano Trimestral",
+            "Marcos de Recife acabou de testar 4h grátis",
+            "Patrícia de Fortaleza comprou Plano Semestral"
         ];
         
+        let notificationIndex = 0;
+        let isFirstThree = true;
+        
         function showRandomNotification() {
-            const randomIndex = Math.floor(Math.random() * notifications.length);
             const notificationText = document.querySelector('.notification-text');
             const notificationAvatar = document.querySelector('.notification-avatar');
             
-            const name = notifications[randomIndex].split(' ')[0];
+            const name = notifications[notificationIndex].split(' ')[0];
             notificationAvatar.textContent = name.charAt(0);
-            notificationText.innerHTML = `<strong>${name}</strong> ${notifications[randomIndex].substring(notifications[randomIndex].indexOf(' ') + 1)}`;
+            notificationText.innerHTML = `<strong>${name}</strong> ${notifications[notificationIndex].substring(notifications[notificationIndex].indexOf(' ') + 1)}`;
             
             notificationToast.classList.add('show');
             
             setTimeout(() => {
                 notificationToast.classList.remove('show');
-            }, 5000);
+                
+                // Avança para a próxima notificação
+                notificationIndex = (notificationIndex + 1) % notifications.length;
+                
+                // Define o próximo intervalo
+                let nextInterval;
+                if (isFirstThree && notificationIndex < 3) {
+                    // Primeiras 3 notificações: 5 segundos cada
+                    nextInterval = 5000;
+                } else {
+                    // Demais notificações: intervalo aleatório entre 7-15 segundos
+                    isFirstThree = false;
+                    nextInterval = Math.floor(Math.random() * 8000) + 7000; // 7-15 segundos
+                }
+                
+                // Agenda próxima notificação
+                setTimeout(showRandomNotification, nextInterval);
+                
+            }, 5000); // Notificação fica visível por 5 segundos
         }
         
-        // Show first notification after 3 seconds
+        // Inicia as notificações após 3 segundos
         setTimeout(showRandomNotification, 3000);
-        
-        // Show subsequent notifications every 15-25 seconds
-        setInterval(showRandomNotification, Math.floor(Math.random() * 10000) + 15000);
         
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
