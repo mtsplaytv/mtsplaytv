@@ -3,1945 +3,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTSPLAY TV - Streaming Premium com +3.000 Canais e Teste Grátis</title>
-    <meta name="description" content="MTSPLAY TV - Assista a +3.000 canais, filmes e séries em 4K. Teste grátis de 4 horas. Planos a partir de R$ 29,90. Ativação imediata!">
-    <meta name="keywords" content="streaming, canais, filmes, séries, mtsplay tv, teste grátis, entretenimento">
+    <title>MTSPLAY TV - Streaming Premium com +3.000 Canais | Teste Grátis</title>
+    <meta name="description" content="Assista a +3.000 canais em 4K, filmes e séries. Teste grátis de 4 horas. Ativação imediata. Planos a partir de R$ 29,90.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #071026;
-            --secondary: #0D1B34;
-            --accent: #0f62fe;
-            --accent-hover: #0043ce;
-            --gold: #ffd700;
-            --text: #ffffff;
-            --text-secondary: #b0b0b0;
-            --bg-light: rgba(255, 255, 255, 0.05);
-            --bg-card: rgba(255, 255, 255, 0.08);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #071026 0%, #0D1B34 100%);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #2AA0FF, #0F62FE);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(15, 98, 254, 0.3);
-        }
-        
-        .btn:hover {
-            background: linear-gradient(90deg, #0F62FE, #2AA0FF);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(15, 98, 254, 0.4);
-        }
-        
-        .btn-large {
-            padding: 18px 40px;
-            font-size: 1.3rem;
-        }
-        
-        .btn-gold {
-            background-color: var(--gold);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-        }
-        
-        .btn-gold:hover {
-            background-color: #e6c200;
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-        }
-        
-        .btn-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        /* Header Modificado */
-        .topbar {
-            background-color: rgba(7, 16, 38, 0.95);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transition: var(--transition);
-        }
-        
-        .topbar.hidden {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        
-        .topbar.scrolled {
-            background-color: transparent;
-            box-shadow: none;
-            padding: 10px 0;
-        }
-        
-        .topbar-content {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-        }
-        
-        .logo-img {
-            height: 40px;
-            width: auto;
-            transition: var(--transition);
-        }
-        
-        .topbar.scrolled .logo-img {
-            height: 35px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 120px 0 80px;
-            text-align: center;
-            overflow: hidden;
-            margin-top: 0;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(7, 16, 38, 0.9), rgba(7, 16, 38, 0.9)),
-                url('https://images.unsplash.com/photo-1616530940355-351fabd9526b') center/cover;
-            filter: blur(8px) brightness(0.7);
-            z-index: -1;
-            transform: scale(1.1);
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--text-secondary);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-        
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background-color: var(--bg-light);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-        
-        .badge:nth-child(2) {
-            animation-delay: 1.1s;
-        }
-        
-        .badge:nth-child(3) {
-            animation-delay: 1.3s;
-        }
-        
-        /* Streamings Section - COM CARROSSEL AUTOMÁTICO */
-        .streamings {
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .streamings h2 {
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .streamings-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 20px 0;
-        }
-        
-        .streamings-carousel {
-            display: flex;
-            gap: 30px;
-            width: max-content;
-            animation: scrollStreamings 40s linear infinite;
-        }
-        
-        .streaming-logo {
-            flex: 0 0 180px;
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            height: 120px;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .streaming-logo:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background-color: rgba(255, 255, 255, 0.12);
-        }
-        
-        .streaming-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .streaming-logo:hover img {
-            transform: scale(1.05);
-        }
-        
-        @keyframes scrollStreamings {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-180px * 8 - 30px * 8)); }
-        }
-        
-        /* Content Section - COM CARROSSEL AUTOMÁTICO */
-        .content-section {
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 0;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .content-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .content-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 20px 0;
-        }
-        
-        .content-carousel {
-            display: flex;
-            gap: 25px;
-            width: max-content;
-            animation: scrollContent 50s linear infinite;
-        }
-        
-        .content-card {
-            flex: 0 0 280px;
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-        
-        .content-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-        
-        .content-poster {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .content-card:hover .content-poster {
-            transform: scale(1.05);
-        }
-        
-        .content-info {
-            padding: 20px;
-        }
-        
-        .content-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .content-meta {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        .content-badge {
-            background-color: var(--accent);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-        
-        @keyframes scrollContent {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-280px * 6 - 25px * 6)); }
-        }
-        
-        /* Plans Section */
-        .plans {
-            text-align: center;
-        }
-        
-        .plans h2 {
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .plan-card {
-            background-color: var(--bg-card);
-            border-radius: 15px;
-            padding: 40px 30px;
-            transition: var(--transition);
-            position: relative;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .plan-card:nth-child(1) { animation-delay: 0.7s; }
-        .plan-card:nth-child(2) { animation-delay: 0.9s; }
-        .plan-card:nth-child(3) { animation-delay: 1.1s; }
-        
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-        
-        .plan-card.featured {
-            background: linear-gradient(135deg, var(--bg-card), rgba(15, 98, 254, 0.1));
-            border: 2px solid var(--accent);
-            transform: scale(1.05);
-        }
-        
-        .plan-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        
-        .plan-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--gold);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        
-        .plan-period {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        
-        .plan-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideInRight 0.6s ease forwards;
-        }
-        
-        .plan-features li:nth-child(1) { animation-delay: 0.8s; }
-        .plan-features li:nth-child(2) { animation-delay: 1.0s; }
-        .plan-features li:nth-child(3) { animation-delay: 1.2s; }
-        .plan-features li:nth-child(4) { animation-delay: 1.4s; }
-        .plan-features li:nth-child(5) { animation-delay: 1.6s; }
-        
-        .plan-features li i {
-            color: var(--accent);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 60px 40px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .testimonials h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .testimonial-card:nth-child(1) { animation-delay: 0.7s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.9s; }
-        .testimonial-card:nth-child(3) { animation-delay: 1.1s; }
-        .testimonial-card:nth-child(4) { animation-delay: 1.3s; }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        .testimonial-rating {
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-        
-        /* FAQ */
-        .faq h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .faq-grid {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background-color: var(--bg-card);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .faq-item:nth-child(1) { animation-delay: 0.7s; }
-        .faq-item:nth-child(2) { animation-delay: 0.9s; }
-        .faq-item:nth-child(3) { animation-delay: 1.1s; }
-        .faq-item:nth-child(4) { animation-delay: 1.3s; }
-        .faq-item:nth-child(5) { animation-delay: 1.5s; }
-        .faq-item:nth-child(6) { animation-delay: 1.7s; }
-        
-        .faq-question {
-            padding: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .faq-question:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--text-secondary);
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 500px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: rgba(7, 16, 38, 0.95);
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-secondary);
-            transition: var(--transition);
-            cursor: pointer;
-            padding: 12px 16px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideInRight 0.8s ease forwards;
-        }
-        
-        .contact-item:nth-child(1) { animation-delay: 0.6s; }
-        .contact-item:nth-child(2) { animation-delay: 0.8s; }
-        
-        .contact-item:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text);
-            transform: translateX(0) scale(1.02);
-            border-color: var(--accent);
-        }
-        
-        .contact-item i {
-            width: 20px;
-            text-align: center;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-        
-        .contact-item span {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* Notification Toast - TAMANHO NORMAL */
-        .notification-toast {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: var(--bg-card);
-            border-radius: 10px;
-            padding: 12px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            max-width: 260px;
-            z-index: 1000;
-            transform: translateX(-100%);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .notification-toast.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        
-        .notification-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-        
-        .notification-text {
-            flex: 1;
-            font-size: 0.8rem;
-            line-height: 1.4;
-        }
-        
-        /* Botão WhatsApp Flutuante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse-whatsapp 2s infinite;
-            transition: var(--transition);
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
-        }
-        
-        @keyframes pulse-whatsapp {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A2F6A',
+                        secondary: '#0A1224',
+                        accent: '#4F8DFF',
+                        background: '#071026',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease forwards',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
             }
         }
-        
-        /* Seção Como Funciona */
-        .how-it-works {
-            text-align: center;
-        }
-        
-        .how-it-works h2 {
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .step-card {
-            background-color: var(--bg-card);
-            border-radius: 15px;
-            padding: 40px 20px;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .step-card:nth-child(1) { animation-delay: 0.7s; }
-        .step-card:nth-child(2) { animation-delay: 0.9s; }
-        .step-card:nth-child(3) { animation-delay: 1.1s; }
-        .step-card:nth-child(4) { animation-delay: 1.3s; }
-        
-        .step-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .step-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .step-description {
-            color: var(--text-secondary);
-        }
-        
-        /* Seção Vantagens */
-        .advantages {
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 60px 40px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .advantages h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .advantage-card {
-            background-color: var(--bg-card);
-            border-radius: 15px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .advantage-card:nth-child(1) { animation-delay: 0.7s; }
-        .advantage-card:nth-child(2) { animation-delay: 0.9s; }
-        .advantage-card:nth-child(3) { animation-delay: 1.1s; }
-        
-        .advantage-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-        
-        .advantage-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        
-        .advantage-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .advantage-description {
-            color: var(--text-secondary);
-        }
-        
-        /* Seção Revendedores */
-        .resellers {
-            text-align: center;
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 60px 40px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .resellers h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .resellers p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.7s forwards;
-        }
-        
-        /* Seção Catálogo Organizado */
-        .catalog-section {
-            margin-bottom: 60px;
-        }
-        
-        .catalog-section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-        }
-        
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .catalog-item {
-            background-color: var(--bg-card);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-        
-        .catalog-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        
-        .catalog-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-        
-        .catalog-info {
-            padding: 15px;
-        }
-        
-        .catalog-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .catalog-meta {
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-        }
-        
-        /* Seção Termos Legais */
-        .legal-section {
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 60px 40px;
-            backdrop-filter: blur(10px);
-            margin-top: 60px;
-        }
-        
-        .legal-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-        
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .legal-content h3 {
-            font-size: 1.5rem;
-            margin: 30px 0 15px;
-            color: var(--accent);
-        }
-        
-        .legal-content p {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-        }
-        
-        /* Animações */
+    </script>
+    <style type="text/css">
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        @keyframes slideInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px var(--accent); }
-            50% { box-shadow: 0 0 20px var(--accent); }
-            100% { box-shadow: 0 0 5px var(--accent); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        .bounce {
-            animation: bounce 2s infinite;
-        }
-        
-        .glow {
-            animation: glow 2s infinite;
-        }
-        
-        /* Floating Animation */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 100px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .streaming-logo {
-                flex: 0 0 140px;
-                height: 100px;
-            }
-            
-            .content-card {
-                flex: 0 0 220px;
-            }
-            
-            .content-poster {
-                height: 300px;
-            }
-            
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-card.featured {
-                transform: none;
-            }
-            
-            .plan-card.featured:hover {
-                transform: translateY(-10px);
-            }
-            
-            .hero-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-container .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .logo-img {
-                height: 35px;
-            }
-            
-            .topbar.scrolled .logo-img {
-                height: 30px;
-            }
-            
-            .notification-toast {
-                max-width: 240px;
-                left: 10px;
-                bottom: 10px;
-            }
-            
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 25px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .catalog-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .catalog-image {
-                height: 200px;
-            }
-            
-            @keyframes scrollStreamings {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-140px * 8 - 30px * 8)); }
-            }
-            
-            @keyframes scrollContent {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-220px * 6 - 25px * 6)); }
-            }
-        }
-
-        @media (max-width: 480px) {
-            .streaming-logo {
-                flex: 0 0 120px;
-                height: 80px;
-            }
-            
-            .content-card {
-                flex: 0 0 180px;
-            }
-            
-            .content-poster {
-                height: 240px;
-            }
-            
-            .logo-img {
-                height: 30px;
-            }
-            
-            .topbar.scrolled .logo-img {
-                height: 25px;
-            }
-            
-            .notification-toast {
-                max-width: 220px;
-                padding: 10px;
-            }
-            
-            .notification-avatar {
-                width: 25px;
-                height: 25px;
-                font-size: 0.7rem;
-            }
-            
-            .whatsapp-float {
-                width: 45px;
-                height: 45px;
-                font-size: 22px;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .catalog-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            }
-            
-            .catalog-image {
-                height: 180px;
-            }
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
         }
     </style>
 </head>
-<body>
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="whatsapp-float" target="_blank">
+<body class="font-inter bg-background text-white overflow-x-hidden">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
+       class="fixed bottom-6 right-6 w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-2xl z-50 shadow-lg hover:scale-110 transition-all duration-300"
+       target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Notification Toast TAMANHO NORMAL -->
-    <div class="notification-toast" id="notificationToast">
-        <div class="notification-avatar">J</div>
-        <div class="notification-text">
-            <strong>João</strong> de São Paulo acabou de ativar o TESTE
-        </div>
-        <a href="#planos" class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Ver Oferta</a>
-    </div>
-
-    <!-- Topbar com LOGO REAL -->
-    <div class="topbar" id="topbar">
-        <div class="container">
-            <div class="topbar-content">
-                <div class="logo">
-                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" class="logo-img floating">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-secondary/95 backdrop-blur-sm py-4 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" class="h-10 w-auto">
+                    <span class="font-poppins font-bold text-xl">MTSPLAY TV</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#planos" class="text-gray-300 hover:text-white transition-colors font-semibold">Planos</a>
+                    <a href="#catalogo" class="text-gray-300 hover:text-white transition-colors font-semibold">Catálogo</a>
+                    <a href="#vantagens" class="text-gray-300 hover:text-white transition-colors font-semibold">Vantagens</a>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>MTSPLAY TV - ENTRETENIMENTO PREMIUM</h1>
-                <p>+3.000 canais, lançamentos 4K e teste grátis de 4 horas. Ativação em segundos.</p>
-                <div class="btn-container">
-                    <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse glow" target="_blank">QUERO TESTAR 4 HORAS GRÁTIS</a>
-                    <a href="#planos" class="btn btn-large btn-gold bounce">Ver Planos</a>
+    <section class="pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-background z-0"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 animate-fade-in-up">
+                    ENTERTAINMENT <span class="text-accent">REDEFINED</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-up animation-delay-300">
+                    +3.000 canais em 4K, filmes e séries. Teste grátis de 4 horas. 
+                    <span class="block text-accent font-semibold">Ativação em segundos.</span>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up animation-delay-500">
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
+                       class="bg-accent text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-md hover:opacity-90 transition-all w-full sm:w-auto text-center">
+                        TESTAR 4 HORAS GRÁTIS
+                    </a>
+                    <a href="#planos" 
+                       class="bg-white text-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-md hover:opacity-90 transition-all w-full sm:w-auto text-center">
+                        VER PLANOS
+                    </a>
                 </div>
-                <div class="hero-badges">
-                    <div class="badge">
-                        <i class="fas fa-users"></i> +12.000 usuários ativos
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto animate-fade-in-up animation-delay-700">
+                    <div class="bg-primary/30 rounded-xl p-4 text-center backdrop-blur-sm">
+                        <i class="fas fa-bolt text-yellow-400 text-2xl mb-2"></i>
+                        <p class="font-semibold">Ativação Imediata</p>
                     </div>
-                    <div class="badge">
-                        <i class="fas fa-headset"></i> Suporte 24h
+                    <div class="bg-primary/30 rounded-xl p-4 text-center backdrop-blur-sm">
+                        <i class="fas fa-shield-alt text-green-400 text-2xl mb-2"></i>
+                        <p class="font-semibold">Pagamento Seguro</p>
                     </div>
-                    <div class="badge">
-                        <i class="fas fa-bolt"></i> Ativação Imediata
+                    <div class="bg-primary/30 rounded-xl p-4 text-center backdrop-blur-sm">
+                        <i class="fas fa-headset text-blue-400 text-2xl mb-2"></i>
+                        <p class="font-semibold">Suporte 24/7</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Como Funciona -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>Como Funciona?</h2>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Você chama no WhatsApp</h3>
-                    <p class="step-description">Entre em contato pelo WhatsApp para solicitar seu teste gratuito.</p>
+    <!-- Streamings Section -->
+    <section class="py-16 bg-secondary/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">Todos os Streamings em Um Só Lugar</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" class="h-12 w-auto object-contain">
                 </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Recebe o app + login</h3>
-                    <p class="step-description">Enviaremos o aplicativo e suas credenciais de acesso.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/Gt7whC6Z/disney-plus-logo.jpg" alt="Disney+" class="h-12 w-auto object-contain">
                 </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Testa por 4 horas</h3>
-                    <p class="step-description">Aproveite 4 horas completas para testar todos os recursos.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/dVVTCq7v/prime-video-logo.jpg" alt="Prime Video" class="h-12 w-auto object-contain">
                 </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Escolhe o plano</h3>
-                    <p class="step-description">Se gostar, escolha o plano que melhor atende suas necessidades.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" class="h-12 w-auto object-contain">
                 </div>
-            </div>
-            <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse" target="_blank">QUERO TESTAR AGORA</a>
-        </div>
-    </section>
-
-    <!-- Seção Vantagens -->
-    <section class="advantages">
-        <div class="container">
-            <h2>Por Que Escolher o MTSPLAY TV?</h2>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 class="advantage-title">Ativação em menos de 60 segundos</h3>
-                    <p class="advantage-description">Receba seu acesso imediatamente após o pagamento.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/RCbDFXWC/globoplay-logo.jpg" alt="Globoplay" class="h-12 w-auto object-contain">
                 </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="advantage-title">App incluso</h3>
-                    <p class="advantage-description">Aplicativo próprio incluso, sem custos adicionais.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/63pM6vwv/star-plus-logo.jpg" alt="Star+" class="h-12 w-auto object-contain">
                 </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    <h3 class="advantage-title">Funciona em qualquer TV</h3>
-                    <p class="advantage-description">Compatível com Smart TVs, Android TV, Fire TV e mais.</p>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/tgX5Dxs4/apple-tv-logo.jpg" alt="Apple TV+" class="h-12 w-auto object-contain">
+                </div>
+                <div class="bg-primary/20 rounded-xl p-4 flex items-center justify-center h-24 backdrop-blur-sm hover:scale-105 transition-transform">
+                    <img src="https://i.postimg.cc/WbtbS4vS/crunchyroll-logo.jpg" alt="Crunchyroll" class="h-12 w-auto object-contain">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Streamings Section - COM CARROSSEL AUTOMÁTICO -->
-    <section class="streamings">
-        <div class="container">
-            <h2>Todos os principais streamings em um só lugar</h2>
+    <!-- Vantagens Section -->
+    <section id="vantagens" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center mb-16">Por Que Escolher a MTSPLAY TV?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-primary/20 rounded-2xl p-8 text-center backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Ativação Instantânea</h3>
+                    <p class="text-gray-300">Seu acesso liberado em menos de 60 segundos após a confirmação do pagamento.</p>
+                </div>
+                <div class="bg-primary/20 rounded-2xl p-8 text-center backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tv text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Multiplataforma</h3>
+                    <p class="text-gray-300">Funciona em Smart TVs, Android, iOS, PC e muito mais. Um login, todos os dispositivos.</p>
+                </div>
+                <div class="bg-primary/20 rounded-2xl p-8 text-center backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-crown text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Conteúdo Premium</h3>
+                    <p class="text-gray-300">+3.000 canais, filmes em 4K, séries exclusivas e eventos esportivos ao vivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo Section -->
+    <section id="catalogo" class="py-20 bg-secondary/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center mb-16">Catálogo Completo</h2>
             
-            <div class="streamings-container">
-                <div class="streamings-carousel">
-                    <!-- Netflix -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" loading="lazy">
+            <!-- Séries -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-poppins font-bold mb-8 border-l-4 border-accent pl-4">Séries em Destaque</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/dtPSrDjp/arcanjo-renegado.jpg" alt="Arcanjo Renegado" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Arcanjo Renegado</h4>
+                            <p class="text-gray-300 text-sm">Ação • 2025 • 4K</p>
+                        </div>
                     </div>
-                    
-                    <!-- Disney+ -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/Gt7whC6Z/disney-plus-logo.jpg" alt="Disney+" loading="lazy">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/RVgK9DhJ/stranger-things.jpg" alt="Stranger Things" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Stranger Things</h4>
+                            <p class="text-gray-300 text-sm">Ficção • 2025 • 4K</p>
+                        </div>
                     </div>
-                    
-                    <!-- Prime Video -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/dVVTCq7v/prime-video-logo.jpg" alt="Prime Video" loading="lazy">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/2SVqj14V/proxy-image-(9).jpg" alt="Peaky Blinders" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Peaky Blinders</h4>
+                            <p class="text-gray-300 text-sm">Drama • 2013 • HD</p>
+                        </div>
                     </div>
-                    
-                    <!-- HBO Max -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" loading="lazy">
-                    </div>
-                    
-                    <!-- Globoplay -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/RCbDFXWC/globoplay-logo.jpg" alt="Globoplay" loading="lazy">
-                    </div>
-                    
-                    <!-- Star+ -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/63pM6vwv/star-plus-logo.jpg" alt="Star+" loading="lazy">
-                    </div>
-                    
-                    <!-- Apple TV+ -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/tgX5Dxs4/apple-tv-logo.jpg" alt="Apple TV+" loading="lazy">
-                    </div>
-                    
-                    <!-- Crunchyroll -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/WbtbS4vS/crunchyroll-logo.jpg" alt="Crunchyroll" loading="lazy">
-                    </div>
-                    
-                    <!-- Duplicando para efeito de loop infinito -->
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" loading="lazy">
-                    </div>
-                    
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/Gt7whC6Z/disney-plus-logo.jpg" alt="Disney+" loading="lazy">
-                    </div>
-                    
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/dVVTCq7v/prime-video-logo.jpg" alt="Prime Video" loading="lazy">
-                    </div>
-                    
-                    <div class="streaming-logo">
-                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" loading="lazy">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/GttRPy3d/proxy-image-(11).jpg" alt="The Witcher" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">The Witcher</h4>
+                            <p class="text-gray-300 text-sm">Fantasia • 2019 • 4K</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="btn-container" style="margin-top: 50px;">
-                <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse" target="_blank">QUERO TESTAR AGORA</a>
+
+            <!-- Filmes -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-poppins font-bold mb-8 border-l-4 border-accent pl-4">Filmes Premium</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Nossa Culpa</h4>
+                            <p class="text-gray-300 text-sm">Drama • 2025 • HDR</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/DzWXBs9Q/frankenstein.jpg" alt="Frankenstein" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Frankenstein</h4>
+                            <p class="text-gray-300 text-sm">Terror • 2025 • 4K</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/cHQhD9CN/proxy-image-(13).jpg" alt="John Wick" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">John Wick</h4>
+                            <p class="text-gray-300 text-sm">Ação • 2014 • HD</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/rsV1fq7w/proxy-image-(14).jpg" alt="O Lobo de Wall Street" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">O Lobo de Wall Street</h4>
+                            <p class="text-gray-300 text-sm">Drama • 2013 • HD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Esportes -->
+            <div>
+                <h3 class="text-2xl font-poppins font-bold mb-8 border-l-4 border-accent pl-4">Esportes ao Vivo</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/MT7kyY88/proxy-image-(15).jpg" alt="Futebol" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Futebol ao Vivo</h4>
+                            <p class="text-gray-300 text-sm">Esportes • 2025 • HD</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/qvh5sGsp/proxy-image-(16).jpg" alt="Premier League" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Premier League</h4>
+                            <p class="text-gray-300 text-sm">Futebol • 2025 • 4K</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/7Pt9K2PB/proxy-image-(17).jpg" alt="UFC" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">UFC Fight Night</h4>
+                            <p class="text-gray-300 text-sm">MMA • 2025 • HD</p>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 rounded-xl overflow-hidden backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                        <img src="https://i.postimg.cc/YCvCQTDw/proxy-image-(18).jpg" alt="PPV" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Pay-Per-View</h4>
+                            <p class="text-gray-300 text-sm">Eventos • 2025 • 4K</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/5585984377361?text=Olá! Quero acessar o catálogo completo da MTSPLAY TV." 
+                   class="bg-accent text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-md hover:opacity-90 transition-all inline-block">
+                    ACESSAR CATÁLOGO COMPLETO
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Catálogo Organizado -->
-    <section id="catalogo">
-        <div class="container">
-            <div class="content-section">
-                <h2>Catálogo Completo</h2>
-                
-                <!-- Em Alta Hoje -->
-                <div class="catalog-section">
-                    <h3>Em Alta Hoje</h3>
-                    <div class="content-container">
-                        <div class="content-carousel">
-                            <!-- Arcanjo Renegado 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/dtPSrDjp/arcanjo-renegado.jpg" alt="Arcanjo Renegado" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Arcanjo Renegado <span class="content-badge">4K</span></div>
-                                    <div class="content-meta">2025 • Ação • Série</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Nossa Culpa 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Nossa Culpa <span class="content-badge">HDR</span></div>
-                                    <div class="content-meta">2025 • Drama • Romance</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Stranger Things 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/RVgK9DhJ/stranger-things.jpg" alt="Stranger Things" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Stranger Things <span class="content-badge">4K</span></div>
-                                    <div class="content-meta">2025 • Ficção • Série</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Os Donos Do Jogo 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/TPgKy7dH/os-donos-do-jogo.jpg" alt="Os Donos Do Jogo" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Os Donos Do Jogo <span class="content-badge">HD</span></div>
-                                    <div class="content-meta">2025 • Drama • Série</div>
-                                </div>
-                            </div>
+    <!-- Prova Social -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-4 bg-primary/20 rounded-full px-6 py-3 backdrop-blur-sm">
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="font-semibold">Avaliação 4.9/5 • +12.000 clientes satisfeitos</span>
+                </div>
+            </div>
 
-                            <!-- Tremembé 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/sDwbmc2t/tremembe.jpg" alt="Tremembé" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Tremembé <span class="content-badge">4K</span></div>
-                                    <div class="content-meta">2025 • Drama • Série</div>
-                                </div>
-                            </div>
-
-                            <!-- Frankenstein 2025 -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/DzWXBs9Q/frankenstein.jpg" alt="Frankenstein" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Frankenstein <span class="content-badge">HDR</span></div>
-                                    <div class="content-meta">2025 • Drama • Terror</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Duplicando para efeito de loop infinito -->
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/dtPSrDjp/arcanjo-renegado.jpg" alt="Arcanjo Renegado" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Arcanjo Renegado <span class="content-badge">4K</span></div>
-                                    <div class="content-meta">2025 • Ação • Série</div>
-                                </div>
-                            </div>
-                            
-                            <div class="content-card">
-                                <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="content-poster" loading="lazy">
-                                <div class="content-info">
-                                    <div class="content-title">Nossa Culpa <span class="content-badge">HDR</span></div>
-                                    <div class="content-meta">2025 • Drama • Romance</div>
-                                </div>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center font-semibold">C</div>
+                        <div>
+                            <h4 class="font-semibold">Carlos Silva</h4>
+                            <p class="text-gray-300 text-sm">São Paulo, SP</p>
                         </div>
                     </div>
+                    <p class="text-gray-300 italic">"Ativação super rápida e a qualidade da imagem é impressionante. Melhor que TV a cabo e muito mais barato!"</p>
                 </div>
-                
-                <!-- Top Séries -->
-                <div class="catalog-section">
-                    <h3>Top Séries</h3>
-                    <div class="catalog-grid">
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/2SVqj14V/proxy-image-(9).jpg" alt="Peaky Blinders" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Peaky Blinders</div>
-                                <div class="catalog-meta">Crime, Drama, Ação • 2013</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/RF9VthnT/proxy-image-(10).jpg" alt="Narcos" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Narcos</div>
-                                <div class="catalog-meta">Crime, Drama, Suspense • 2015</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/GttRPy3d/proxy-image-(11).jpg" alt="The Witcher" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">The Witcher</div>
-                                <div class="catalog-meta">Fantasia, Ação, Aventura • 2019</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/K8n6MN71/proxy-image-(12).jpg" alt="The Boys" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">The Boys</div>
-                                <div class="catalog-meta">Ação, Super-herói, Drama • 2019</div>
-                            </div>
+                <div class="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center font-semibold">M</div>
+                        <div>
+                            <h4 class="font-semibold">Mariana Costa</h4>
+                            <p class="text-gray-300 text-sm">Rio de Janeiro, RJ</p>
                         </div>
                     </div>
+                    <p class="text-gray-300 italic">"Suporte excelente! Resolveram minha dúvida em minutos. Conteúdo sempre atualizado e zero travamentos."</p>
                 </div>
-                
-                <!-- Top Filmes -->
-                <div class="catalog-section">
-                    <h3>Top Filmes</h3>
-                    <div class="catalog-grid">
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Nossa Culpa</div>
-                                <div class="catalog-meta">Drama • 2025</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/DzWXBs9Q/frankenstein.jpg" alt="Frankenstein" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Frankenstein</div>
-                                <div class="catalog-meta">Terror • 2025</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/cHQhD9CN/proxy-image-(13).jpg" alt="John Wick" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">John Wick</div>
-                                <div class="catalog-meta">Ação, Thriller • 2014</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/rsV1fq7w/proxy-image-(14).jpg" alt="O Lobo de Wall Street" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">O Lobo de Wall Street</div>
-                                <div class="catalog-meta">Biografia, Crime, Drama • 2013</div>
-                            </div>
+                <div class="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center font-semibold">R</div>
+                        <div>
+                            <h4 class="font-semibold">Roberto Lima</h4>
+                            <p class="text-gray-300 text-sm">Belo Horizonte, MG</p>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Esportes / Futebol / UFC -->
-                <div class="catalog-section">
-                    <h3>Esportes / Futebol / UFC</h3>
-                    <div class="catalog-grid">
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/MT7kyY88/proxy-image-(15).jpg" alt="Futebol ao Vivo" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Futebol ao Vivo</div>
-                                <div class="catalog-meta">Esportes • Futebol • 2025</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/qvh5sGsp/proxy-image-(16).jpg" alt="Premier League" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Premier League</div>
-                                <div class="catalog-meta">Esportes • Futebol Inglês • 2025</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/7Pt9K2PB/proxy-image-(17).jpg" alt="UFC Fight Night" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">UFC Fight Night</div>
-                                <div class="catalog-meta">Esportes • Artes Marciais • MMA • 2025</div>
-                            </div>
-                        </div>
-                        <div class="catalog-item">
-                            <img src="https://i.postimg.cc/YCvCQTDw/proxy-image-(18).jpg" alt="Pay-Per-View" class="catalog-image" loading="lazy">
-                            <div class="catalog-info">
-                                <div class="catalog-title">Pay-Per-View</div>
-                                <div class="catalog-meta">Esportes • Combate • MMA • 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse" target="_blank">QUERO ACESSAR O CATÁLOGO COMPLETO</a>
+                    <p class="text-gray-300 italic">"Instalei em 3 TVs e funciona perfeitamente em todas. Economizei mais de R$ 200 por mês trocando da TV a cabo."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Feedback dos Clientes -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>O Que Nossos Clientes Dizem</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Instalei em 5 minutos e já estava funcionando perfeitamente! A qualidade da imagem é incrível e o suporte foi muito ágil."</p>
-                    <p class="testimonial-author">- Carlos, SP</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Suporte excelente, resolveram meu problema em menos de 10 minutos. Recomendo para todos que querem qualidade e agilidade."</p>
-                    <p class="testimonial-author">- Mariana, RJ</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Qualidade de imagem incrível, muito melhor que a TV a cabo que eu tinha. Conteúdo sempre atualizado e zero travamentos."</p>
-                    <p class="testimonial-author">- Roberto, MG</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Melhor app que já usei. Instalei em 3 TVs e funciona perfeitamente em todas. Ativação foi super rápida como prometeram."</p>
-                    <p class="testimonial-author">- Ana, BA</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Planos Section -->
+    <section id="planos" class="py-20 bg-secondary/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center mb-4">Planos Premium</h2>
+            <p class="text-xl text-gray-300 text-center mb-12">Escolha o plano perfeito para sua diversão</p>
 
-    <!-- Plans Section -->
-    <section class="plans" id="planos">
-        <div class="container">
-            <h2>Planos Que Cabem No Seu Bolso</h2>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-name">Plano Mensal</div>
-                    <div class="plan-price">R$ 29,90</div>
-                    <div class="plan-period">por mês</div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
-                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
-                        <li><i class="fas fa-check"></i> Suporte 24h</li>
-                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Plano Mensal -->
+                <div class="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Plano Mensal</h3>
+                    <div class="text-4xl font-black mb-2">R$ 29,90</div>
+                    <p class="text-gray-300 mb-6">por mês</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Teste grátis de 4 horas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>+3.000 canais</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Qualidade 4K</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Suporte 24/7</span>
+                        </li>
                     </ul>
-                    <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Mensal do MTSPLAY TV." class="btn" target="_blank">Ativar Plano — R$ 29,90</a>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero o Plano Mensal da MTSPLAY TV." 
+                       class="bg-accent text-white w-full py-3 rounded-xl font-semibold text-center block shadow-md hover:opacity-90 transition-all">
+                        ASSINAR AGORA
+                    </a>
                 </div>
-                <div class="plan-card featured">
-                    <div class="plan-badge">Mais vendido</div>
-                    <div class="plan-name">Plano Trimestral</div>
-                    <div class="plan-price">R$ 79,90</div>
-                    <div class="plan-period">a cada 3 meses</div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
-                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
-                        <li><i class="fas fa-check"></i> Suporte 24h prioritário</li>
-                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
-                        <li><i class="fas fa-check"></i> +1 mês grátis por indicação</li>
-                    </ul>
-                    <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Trimestral do MTSPLAY TV." class="btn btn-gold" target="_blank">Ativar Plano — R$ 79,90</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-name">Plano Semestral</div>
-                    <div class="plan-price">R$ 139,90</div>
-                    <div class="plan-period">a cada 6 meses</div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Teste de 4 horas</li>
-                        <li><i class="fas fa-check"></i> Acesso a +3.000 canais</li>
-                        <li><i class="fas fa-check"></i> Suporte 24h prioritário</li>
-                        <li><i class="fas fa-check"></i> Qualidade 4K</li>
-                        <li><i class="fas fa-check"></i> 5 indicações = 1 mês grátis</li>
-                    </ul>
-                    <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Semestral do MTSPLAY TV." class="btn" target="_blank">Ativar Plano — R$ 139,90</a>
-                </div>
-            </div>
-            <p style="margin-top: 30px; color: var(--text-secondary);">
-                Pagamento seguro via Pix — Suporte imediato — Cancelamento a qualquer momento
-            </p>
-            
-            <div class="btn-container" style="margin-top: 40px;">
-                <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse" target="_blank">QUERO TESTAR AGORA</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Seção Revendedores -->
-    <section class="resellers">
-        <div class="container">
-            <h2>Quer Revender o MTSPLAY TV?</h2>
-            <p>Ganhe renda extra revendendo nosso serviço. Planos especiais para revendedores com descontos exclusivos.</p>
-            <a href="https://wa.me/5585984377361?text=Olá! Tenho interesse em revender o MTSPLAY TV." class="btn btn-large btn-gold" target="_blank">FALE CONOSCO SOBRE REVENDAS</a>
+                <!-- Plano Trimestral -->
+                <div class="bg-accent rounded-2xl p-8 relative transform scale-105 shadow-xl">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-primary px-4 py-1 rounded-full font-bold text-sm">
+                        MAIS POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Plano Trimestral</h3>
+                    <div class="text-4xl font-black mb-2 text-white">R$ 79,90</div>
+                    <p class="text-white/80 mb-2">a cada 3 meses</p>
+                    <div class="bg-white/20 rounded-lg p-2 mb-4">
+                        <p class="text-white text-sm font-semibold text-center">Economize R$ 9,80</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-white">
+                            <i class="fas fa-check"></i>
+                            <span>Todos os benefícios do mensal</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <i class="fas fa-check"></i>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <i class="fas fa-check"></i>
+                            <span>+1 mês grátis por indicação</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero o Plano Trimestral da MTSPLAY TV." 
+                       class="bg-white text-primary w-full py-3 rounded-xl font-semibold text-center block shadow-md hover:opacity-90 transition-all">
+                        ASSINAR AGORA
+                    </a>
+                </div>
+
+                <!-- Plano Semestral -->
+                <div class="bg-primary/20 rounded-2xl p-8 backdrop-blur-sm hover:transform hover:scale-105 transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Plano Semestral</h3>
+                    <div class="text-4xl font-black mb-2">R$ 139,90</div>
+                    <p class="text-gray-300 mb-2">a cada 6 meses</p>
+                    <div class="bg-green-500/20 rounded-lg p-2 mb-4">
+                        <p class="text-green-400 text-sm font-semibold text-center">Economize R$ 58,90</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Todos os benefícios do trimestral</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Ativação instantânea</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>5 indicações = 1 mês grátis</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5585984377361?text=Olá! Quero o Plano Semestral da MTSPLAY TV." 
+                       class="bg-accent text-white w-full py-3 rounded-xl font-semibold text-center block shadow-md hover:opacity-90 transition-all">
+                        ASSINAR AGORA
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/5585984377361?text=Olá! Quero testar a MTSPLAY TV." 
+                   class="bg-accent text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-md hover:opacity-90 transition-all inline-block">
+                    TESTAR 4 HORAS GRÁTIS
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <h2>Perguntas Frequentes</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Como funciona o teste gratuito?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O teste gratuito de 4 horas é liberado imediatamente após o contato via WhatsApp. Você recebe acesso completo a todos os canais e conteúdos durante esse período para testar a qualidade e estabilidade do serviço sem nenhum custo.</p>
-                    </div>
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">Perguntas Frequentes</h2>
+            <div class="space-y-6">
+                <div class="bg-primary/20 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-3">Como funciona o teste gratuito?</h3>
+                    <p class="text-gray-300">Oferecemos 4 horas completas de teste gratuito. Entre em contato via WhatsApp e receba acesso imediato a todo nosso catálogo para testar a qualidade e estabilidade do serviço.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Quanto custa depois do teste gratuito?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Após o teste, você pode escolher entre nossos planos mensal (R$ 29,90), trimestral (R$ 79,90) ou semestral (R$ 139,90). Não há cobrança automática após o teste - a assinatura só é feita se você decidir continuar com o serviço.</p>
-                    </div>
+                <div class="bg-primary/20 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-3">Em quais dispositivos funciona?</h3>
+                    <p class="text-gray-300">Compatível com Smart TVs, Android TV, Fire TV Stick, celulares Android e iPhone, tablets, computadores e muito mais. Um login para todos os seus dispositivos.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Como faço para cancelar?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O cancelamento pode ser feito a qualquer momento através do nosso suporte via WhatsApp. Não há fidelidade e o reembolso é proporcional caso você cancele no meio de um período já pago. Nosso time está disponível 24h para ajudar.</p>
-                    </div>
+                <div class="bg-primary/20 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-3">Qual a qualidade de transmissão?</h3>
+                    <p class="text-gray-300">Transmitimos em até 4K com estabilidade premium. A qualidade se adapta automaticamente à sua conexão de internet, garantindo a melhor experiência sem travamentos.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Em quais dispositivos o MTSPLAY funciona?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O MTSPLAY TV funciona em Smart TVs (todas as marcas), TV Box, Android, iPhone, tablets, notebooks e PCs. Fornecemos o aplicativo e instruções de instalação para cada dispositivo. Suporte técnico incluso para ajudar na configuração.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        O conteúdo é atualizado regularmente?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim! Nosso catálogo é atualizado diariamente com novos filmes, séries e canais. Você terá acesso aos lançamentos em qualidade 4K assim que estiverem disponíveis, além de +3.000 canais ao vivo de diversos países.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Qual a qualidade de transmissão?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Trabalhamos com qualidade Full HD e 4K em todos os nossos servidores. A qualidade se adapta automaticamente à sua conexão de internet, garantindo a melhor experiência possível sem travamentos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="btn-container" style="margin-top: 40px;">
-                <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." class="btn btn-large pulse" target="_blank">QUERO TESTAR AGORA</a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Termos Legais -->
-    <section class="legal-section">
-        <div class="container">
-            <h2>Informações Legais</h2>
-            <div class="legal-content">
-                <h3>Termos de Uso</h3>
-                <p>O MTSPLAY TV é um serviço de streaming que oferece acesso a conteúdo multimídia mediante assinatura. Ao utilizar nosso serviço, você concorda com estes termos.</p>
-                <p>O usuário é responsável pelo uso adequado do serviço e deve respeitar as leis de direitos autorais aplicáveis em seu país.</p>
-                
-                <h3>Política de Privacidade</h3>
-                <p>Respeitamos sua privacidade. Coletamos apenas informações necessárias para fornecer e melhorar nosso serviço, como dados de cadastro e preferências de conteúdo.</p>
-                <p>Não compartilhamos suas informações pessoais com terceiros sem seu consentimento, exceto quando exigido por lei.</p>
-                
-                <h3>Política de Cookies</h3>
-                <p>Utilizamos cookies para melhorar sua experiência de navegação, personalizar conteúdo e analisar tráfego. Ao continuar usando nosso site, você concorda com o uso de cookies.</p>
-                <p>Você pode controlar o uso de cookies através das configurações do seu navegador.</p>
-                
-                <h3>Suporte ao Cliente</h3>
-                <p>Oferecemos suporte técnico 24 horas por dia, 7 dias por semana através do WhatsApp. Entre em contato para resolver qualquer problema relacionado ao serviço.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer com LOGO REAL -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" style="width: 150px; margin-bottom: 20px;">
-                    <p style="color: var(--text-secondary);">Entretenimento premium sem limites para você e sua família.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#planos">Planos</a></li>
-                        <li><a href="#catalogo">Catálogo</a></li>
-                        <li><a href="https://wa.me/5585984377361?text=Olá! Preciso de suporte para a MTSPLAY TV." target="_blank">Suporte</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#termos">Termos de Uso</a></li>
-                        <li><a href="#privacidade">Política de Privacidade</a></li>
-                        <li><a href="#cookies">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contato</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>WhatsApp</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>E-mail</span>
-                        </div>
+    <!-- Footer -->
+    <footer class="bg-secondary py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" class="h-10 w-auto">
+                        <span class="font-poppins font-bold text-xl">MTSPLAY TV</span>
                     </div>
+                    <p class="text-gray-400">Entretenimento premium sem limites para você e sua família.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#planos" class="text-gray-400 hover:text-white transition-colors">Planos</a></li>
+                        <li><a href="#catalogo" class="text-gray-400 hover:text-white transition-colors">Catálogo</a></li>
+                        <li><a href="#vantagens" class="text-gray-400 hover:text-white transition-colors">Vantagens</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Suporte</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/5585984377361" class="text-gray-400 hover:text-white transition-colors" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:suporte@mtsplay.tv" class="text-gray-400 hover:text-white transition-colors">E-mail</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="copyright">
-                MTSPLAY TV — Entretenimento Sem Limites © 2025 — Política de Privacidade — Termos de Uso
+            <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2024 MTSPLAY TV. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
-        const topbar = document.getElementById('topbar');
-        let lastScrollY = window.scrollY;
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                topbar.classList.add('scrolled');
-                
-                // Esconder ao rolar para baixo
-                if (window.scrollY > lastScrollY) {
-                    topbar.classList.add('hidden');
-                } else {
-                    // Mostrar ao rolar para cima
-                    topbar.classList.remove('hidden');
-                }
-            } else {
-                // No topo - mostrar header completo
-                topbar.classList.remove('scrolled');
-                topbar.classList.remove('hidden');
-            }
-            
-            lastScrollY = window.scrollY;
-        });
-
-        // Notification Toast
-        const notificationToast = document.getElementById('notificationToast');
-        const notifications = [
-            "João de São Paulo acabou de ativar o TESTE GRÁTIS",
-            "Maria do Rio acabou de comprar Plano Mensal — R$29,90",
-            "Carlos de Minas ativou o Plano Trimestral — R$79,90",
-            "Ana de Brasília acabou de testar 4h grátis",
-            "Pedro de Salvador comprou Plano Semestral — R$139,90",
-            "Juliana de Curitiba ativou teste gratuito",
-            "Ricardo de Porto Alegre comprou Plano Mensal — R$29,90",
-            "Fernanda de Belo Horizonte ativou Plano Trimestral — R$79,90",
-            "Marcos de Recife acabou de testar 4h grátis",
-            "Patrícia de Fortaleza comprou Plano Semestral — R$139,90",
-            "Rafael de Belém ativou o Plano Mensal",
-            "Carla de Manaus acabou de testar 4h grátis",
-            "Diego de Goiânia comprou Plano Trimestral",
-            "Larissa de Florianópolis ativou teste gratuito"
-        ];
-        
-        let notificationIndex = 0;
-        let isFirstThree = true;
-        
-        function showRandomNotification() {
-            const notificationText = document.querySelector('.notification-text');
-            const notificationAvatar = document.querySelector('.notification-avatar');
-            
-            const name = notifications[notificationIndex].split(' ')[0];
-            notificationAvatar.textContent = name.charAt(0);
-            notificationText.innerHTML = `<strong>${name}</strong> ${notifications[notificationIndex].substring(notifications[notificationIndex].indexOf(' ') + 1)}`;
-            
-            notificationToast.classList.add('show');
-            
-            setTimeout(() => {
-                notificationToast.classList.remove('show');
-                
-                // Avança para a próxima notificação
-                notificationIndex = (notificationIndex + 1) % notifications.length;
-                
-                // Define o próximo intervalo
-                let nextInterval;
-                if (isFirstThree && notificationIndex < 3) {
-                    // Primeiras 3 notificações: 5 segundos cada
-                    nextInterval = 5000;
-                } else {
-                    // Demais notificações: intervalo aleatório entre 7-15 segundos
-                    isFirstThree = false;
-                    nextInterval = Math.floor(Math.random() * 8000) + 7000; // 7-15 segundos
-                }
-                
-                // Agenda próxima notificação
-                setTimeout(showRandomNotification, nextInterval);
-                
-            }, 5000); // Notificação fica visível por 5 segundos
-        }
-        
-        // Inicia as notificações após 3 segundos
-        setTimeout(showRandomNotification, 3000);
-        
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                // Close all other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        });
-
-        // Smooth scroll for anchor links
+        // Smooth scroll para links âncora
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1955,7 +526,7 @@
             });
         });
 
-        // Intersection Observer para animações ao scroll
+        // Animação de entrada
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1969,54 +540,8 @@
             });
         }, observerOptions);
 
-        // Observar elementos com animação
-        document.querySelectorAll('.streamings h2, .content-section h2, .plans h2, .testimonials h2, .faq h2, .how-it-works h2, .advantages h2, .resellers h2').forEach(el => {
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
             observer.observe(el);
-        });
-
-        // Redirecionamento dos contatos
-        document.querySelectorAll('.contact-item')[0].addEventListener('click', function() {
-            window.open('https://wa.me/5585984377361?text=Olá! Preciso de suporte para a MTSPLAY TV.', '_blank');
-        });
-
-        document.querySelectorAll('.contact-item')[1].addEventListener('click', function() {
-            window.location.href = 'mailto:mtsplaytv@gmail.com?subject=Suporte MTSPLAY TV&body=Olá! Preciso de suporte para a MTSPLAY TV.';
-        });
-
-        // Lazy loading para imagens
-        document.addEventListener("DOMContentLoaded", function() {
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            lazyImages.forEach(img => {
-                imageObserver.observe(img);
-            });
-        });
-
-        // Otimização de performance - Pausar animações quando não visíveis
-        const carousels = document.querySelectorAll('.streamings-carousel, .content-carousel');
-        
-        const carouselObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                } else {
-                    entry.target.style.animationPlayState = 'paused';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        carousels.forEach(carousel => {
-            carouselObserver.observe(carousel);
         });
     </script>
 </body>
