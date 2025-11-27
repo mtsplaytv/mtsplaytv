@@ -21,21 +21,24 @@
                         accent: '#0f62fe',
                         'accent-hover': '#0043ce',
                         gold: '#ffd700',
+                        'dark-blue': '#1e3a8a',
+                        'red-btn': '#e53e3e',
+                        'red-btn-hover': '#c53030',
                     },
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
                         'inter': ['Inter', 'sans-serif'],
                     },
                     animation: {
-                        'fade-in-up': 'fadeInUp 1s ease forwards',
-                        'slide-in-right': 'slideInRight 0.6s ease forwards',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
                         'pulse-custom': 'pulse 2s infinite',
                         'bounce-custom': 'bounce 2s infinite',
-                        'glow-custom': 'glow 2s infinite',
-                        'floating': 'floating 3s ease-in-out infinite',
-                        'scroll-streamings': 'scrollStreamings 40s linear infinite',
-                        'scroll-content': 'scrollContent 50s linear infinite',
+                        'scroll-streamings': 'scrollStreamings 25s linear infinite',
+                        'scroll-content': 'scrollContent 35s linear infinite',
                         'pulse-whatsapp': 'pulseWhatsapp 2s infinite',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
                     },
                     backdropBlur: {
                         'xs': '2px',
@@ -46,6 +49,10 @@
     </script>
     <style type="text/css">
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -53,6 +60,10 @@
         }
         
         @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -60,27 +71,14 @@
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px #0f62fe; }
-            50% { box-shadow: 0 0 20px #0f62fe; }
-            100% { box-shadow: 0 0 5px #0f62fe; }
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
         }
         
         @keyframes scrollStreamings {
@@ -95,42 +93,78 @@
         
         @keyframes pulseWhatsapp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Garantir que as animações funcionem com Tailwind */
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .animate-fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
         }
         
         .animate-slide-in-right {
             opacity: 0;
-            transform: translateX(-20px);
         }
 
-        /* Estilos para animação de delay */
+        .animate-scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .animation-delay-200 {
+            animation-delay: 200ms;
+        }
         .animation-delay-300 {
             animation-delay: 300ms;
         }
-        .animation-delay-600 {
-            animation-delay: 600ms;
-        }
-        .animation-delay-900 {
-            animation-delay: 900ms;
-        }
-        .animation-delay-1100 {
-            animation-delay: 1100ms;
-        }
-        .animation-delay-1300 {
-            animation-delay: 1300ms;
+        .animation-delay-400 {
+            animation-delay: 400ms;
         }
         .animation-delay-500 {
             animation-delay: 500ms;
         }
+        .animation-delay-600 {
+            animation-delay: 600ms;
+        }
         .animation-delay-700 {
             animation-delay: 700ms;
+        }
+        .animation-delay-800 {
+            animation-delay: 800ms;
+        }
+        .animation-delay-900 {
+            animation-delay: 900ms;
+        }
+        .animation-delay-1000 {
+            animation-delay: 1000ms;
+        }
+
+        /* Otimizações de performance */
+        .transform-gpu {
+            transform: translateZ(0);
+        }
+
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+
+        .preserve-3d {
+            transform-style: preserve-3d;
         }
 
         @media (max-width: 768px) {
@@ -144,32 +178,113 @@
                 100% { transform: translateX(calc(-220px * 6 - 25px * 6)); }
             }
         }
+
+        /* Melhorias de acessibilidade */
+        .focus-visible {
+            outline: 2px solid #0f62fe;
+            outline-offset: 2px;
+        }
+
+        /* Efeitos de hover otimizados */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gradientes melhorados */
+        .gradient-primary {
+            background: linear-gradient(135deg, #071026 0%, #0D1B34 100%);
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, #0f62fe 0%, #2AA0FF 100%);
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+        }
+
+        .gradient-red {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
-<body class="font-inter bg-gradient-to-b from-primary to-secondary text-white overflow-x-hidden">
+<body class="font-inter gradient-primary text-white overflow-x-hidden">
+    <!-- Modal para provas sociais -->
+    <div id="proofModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-       class="fixed bottom-6 right-6 w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-2xl z-50 animate-pulse-whatsapp hover:scale-110 transition-transform duration-300 shadow-lg"
-       target="_blank">
+       class="fixed bottom-6 right-6 w-16 h-16 bg-[#25d366] text-white rounded-full flex items-center justify-center text-2xl z-50 animate-pulse-whatsapp hover:scale-110 transition-all duration-300 shadow-xl transform-gpu backface-hidden"
+       target="_blank" aria-label="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Botão Voltar ao Topo -->
-    <button id="backToTop" class="fixed bottom-24 right-6 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl z-50 opacity-0 transition-all duration-300 shadow-lg hover:bg-accent-hover">
+    <button id="backToTop" class="fixed bottom-28 right-6 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl z-50 opacity-0 transition-all duration-300 shadow-lg hover:bg-accent-hover transform-gpu backface-hidden" aria-label="Voltar ao topo">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <!-- Notification Toast -->
-    <div id="notificationToast" class="fixed bottom-5 left-5 bg-white/10 backdrop-blur-md rounded-xl p-3 shadow-xl flex items-center gap-2 max-w-[260px] z-40 -translate-x-full opacity-0 transition-all duration-300">
-        <div class="w-7 h-7 rounded-full bg-accent flex items-center justify-center font-bold text-sm text-white">J</div>
-        <div class="flex-1 text-sm leading-tight">
+    <div id="notificationToast" class="fixed bottom-5 left-5 bg-white/10 backdrop-blur-md rounded-xl p-3 shadow-2xl flex items-center gap-2 max-w-[260px] z-40 -translate-x-full opacity-0 transition-all duration-500 border border-white/20">
+        <div class="w-7 h-7 rounded-full bg-gradient-accent flex items-center justify-center font-bold text-sm text-white notification-avatar">J</div>
+        <div class="flex-1 text-sm leading-tight notification-text">
             <strong>João</strong> de São Paulo acabou de ativar o TESTE
         </div>
-        <a href="#planos" class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-3 py-1 rounded-full text-xs font-semibold hover:from-accent hover:to-[#2AA0FF] transition-all duration-300">Ver Oferta</a>
+        <a href="#planos" class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-3 py-1 rounded-full text-xs font-semibold hover:from-accent hover:to-[#2AA0FF] transition-all duration-300 transform-gpu">Ver Oferta</a>
     </div>
 
     <!-- Pessoas Comprando Agora -->
-    <div id="liveActivity" class="fixed top-24 right-5 bg-green-500/20 border border-green-500 rounded-lg p-3 z-40 hidden md:block">
+    <div id="liveActivity" class="fixed top-24 right-5 bg-green-500/20 border border-green-500/50 rounded-xl p-3 z-40 hidden md:block backdrop-blur-md animate-fade-in animation-delay-500">
         <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span class="text-xs font-semibold text-green-300" id="liveCount">12</span>
@@ -178,18 +293,19 @@
     </div>
 
     <!-- Topbar -->
-    <div id="topbar" class="fixed top-0 w-full bg-primary/95 py-4 z-40 shadow-lg transition-all duration-300">
+    <div id="topbar" class="fixed top-0 w-full bg-primary/95 py-4 z-40 shadow-lg transition-all duration-500 backdrop-blur-md border-b border-white/10">
         <div class="container mx-auto px-5">
-            <div class="flex justify-between items-center transition-all duration-300">
-                <div class="flex items-center gap-2 transition-all duration-300">
-                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" class="h-10 animate-floating">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <!-- Logo sem animação e maior -->
+                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV Logo" class="h-14 transform-gpu">
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="hidden md:flex items-center gap-2 text-sm text-gray-300">
+                    <div class="hidden md:flex items-center gap-2 text-sm text-gray-300 bg-white/10 px-3 py-1 rounded-full">
                         <i class="fas fa-shield-alt text-green-400"></i>
                         <span>Site 100% Seguro</span>
                     </div>
-                    <div class="hidden md:flex items-center gap-2 text-sm text-gray-300">
+                    <div class="hidden md:flex items-center gap-2 text-sm text-gray-300 bg-white/10 px-3 py-1 rounded-full">
                         <i class="fas fa-truck text-blue-400"></i>
                         <span>Ativação Imediata</span>
                     </div>
@@ -198,63 +314,93 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section SEM Pulsação -->
     <section id="inicio" class="relative pt-32 pb-20 text-center overflow-hidden mt-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/90 bg-[url('https://images.unsplash.com/photo-1616530940355-351fabd9526b')] bg-cover bg-center blur-lg brightness-50 scale-110"></div>
+        
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/90 bg-[url('https://i.postimg.cc/8P4w8zVq/tv-background.jpg')] bg-cover bg-center blur-sm brightness-50 scale-105 transform-gpu"></div>
+        
         <div class="container mx-auto px-5 relative z-10">
-            <!-- Selos de Confiança -->
-            <div class="flex justify-center gap-4 mb-8 flex-wrap">
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm flex items-center gap-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
-                    <span>+12.000 Clientes Satisfeitos</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm flex items-center gap-2">
-                    <i class="fas fa-bolt text-yellow-400"></i>
-                    <span>Ativação em 5 Minutos</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-blue-400"></i>
-                    <span>Pagamento 100% Seguro</span>
-                </div>
-            </div>
-
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-poppins font-extrabold mb-5 text-shadow-lg animate-fade-in-up animation-delay-300">
-                    MTSPLAY TV - ENTRETENIMENTO PREMIUM
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-poppins font-extrabold mb-5 animate-fade-in-up animation-delay-300">
+                    MTSPLAY TV - <span class="bg-gradient-to-r from-accent to-[#2AA0FF] bg-clip-text text-transparent">CANCELE TODOS OS STREAMINGS</span>
                 </h1>
-                <p class="text-lg md:text-xl mb-10 text-gray-300 text-shadow animate-fade-in-up animation-delay-600">
-                    +3.000 canais, lançamentos 4K e teste grátis de 4 horas. Ativação em segundos.
+                <p class="text-lg md:text-xl mb-10 text-gray-300 animate-fade-in-up animation-delay-500">
+                    <strong>Tenha Netflix, Disney+, HBO Max e todos os outros em um só app</strong> por menos de R$ 1 por dia. Teste grátis de 4 horas.
                 </p>
                 
-                <!-- Garantia de Risco Zero -->
-                <div class="bg-green-500/20 border border-green-500 rounded-2xl p-6 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-800">
+                <!-- Garantia de Risco Zero MELHORADA -->
+                <div class="bg-green-500/20 border border-green-500/50 rounded-2xl p-6 mb-8 max-w-2xl mx-auto animate-scale-in animation-delay-700 backdrop-blur-md">
                     <div class="flex items-center justify-center gap-3 mb-3">
                         <i class="fas fa-medal text-yellow-400 text-2xl"></i>
-                        <h3 class="text-xl font-bold text-white">GARANTIA RISCO ZERO</h3>
+                        <h3 class="text-xl font-bold text-white">GARANTIA RISCO ZERO - 7 DIAS</h3>
                     </div>
                     <p class="text-gray-200">Se em 7 dias você não ficar 100% satisfeito, devolvemos seu dinheiro! Sem perguntas, sem burocracia.</p>
                 </div>
 
+                <!-- Social Proof Dinâmica -->
+                <div class="bg-white/5 backdrop-blur-md rounded-2xl p-4 mb-6 max-w-md mx-auto border border-white/10 animate-fade-in-up animation-delay-800">
+                    <div class="flex items-center justify-center gap-3">
+                        <i class="fas fa-shopping-cart text-green-400 text-xl"></i>
+                        <span class="font-semibold" id="livePurchases">15 pessoas comprando agora</span>
+                    </div>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
                     <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-                       class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-6 py-4 rounded-full font-semibold text-lg animate-pulse-custom animate-glow-custom hover:from-accent hover:to-[#2AA0FF] hover:-translate-y-1 transition-all duration-300 shadow-lg text-center w-full sm:w-auto"
+                       class="gradient-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg text-center w-full sm:w-auto transform-gpu hover-lift"
                        target="_blank">
-                        QUERO TESTAR 4 HORAS GRÁTIS
+                        <i class="fas fa-play-circle mr-2"></i> QUERO MEU TESTE GRÁTIS AGORA
                     </a>
                     <a href="#planos" 
-                       class="bg-gold text-black px-6 py-4 rounded-full font-semibold text-lg animate-bounce-custom hover:bg-yellow-500 transition-all duration-300 shadow-lg text-center w-full sm:w-auto">
-                        Ver Planos
+                       class="bg-dark-blue text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:bg-blue-900 transition-all duration-300 shadow-lg text-center w-full sm:w-auto transform-gpu hover-lift">
+                        <i class="fas fa-crown mr-2"></i> VER PLANOS COM DESCONTO
                     </a>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-900">
-                        <i class="fas fa-users"></i> +12.000 usuários ativos
+                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-800 border border-white/10">
+                        <i class="fas fa-users text-accent"></i> +12.000 usuários ativos
                     </div>
-                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-1100">
-                        <i class="fas fa-headset"></i> Suporte 24h
+                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-1000 border border-white/10">
+                        <i class="fas fa-headset text-accent"></i> Suporte 24h
                     </div>
-                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-1300">
-                        <i class="fas fa-bolt"></i> Ativação Imediata
+                    <div class="bg-white/5 backdrop-blur-md px-5 py-3 rounded-full text-sm flex items-center gap-2 animate-fade-in-up animation-delay-1200 border border-white/10">
+                        <i class="fas fa-bolt text-accent"></i> Ativação Imediata
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Comparação de Economia -->
+    <section class="py-16 bg-white/5 backdrop-blur-md border-y border-white/10">
+        <div class="container mx-auto px-5">
+            <div class="max-w-4xl mx-auto bg-white/10 rounded-2xl p-8 border border-white/10">
+                <h2 class="text-3xl font-poppins font-bold mb-8 text-center">💰 VEJA QUANTO VOCÊ ECONOMIZA</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Streamings Separados:</h3>
+                        <div class="space-y-3 text-lg">
+                            <div class="flex justify-between">
+                                <span>Netflix + Disney+ + HBO Max:</span>
+                                <span class="text-red-400 line-through">R$ 67,90/mês</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Prime Video + Star+ + Globoplay:</span>
+                                <span class="text-red-400 line-through">R$ 49,90/mês</span>
+                            </div>
+                            <div class="flex justify-between border-t border-white/20 pt-3">
+                                <span class="font-bold">TOTAL:</span>
+                                <span class="text-red-400 font-bold line-through">R$ 117,80/mês</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-500/20 border border-green-500/50 rounded-2xl p-6">
+                            <h3 class="text-2xl font-bold mb-2">MTSPLAY TV</h3>
+                            <div class="text-4xl font-bold text-green-400 mb-2">R$ 29,90<span class="text-lg">/mês</span></div>
+                            <div class="text-xl font-bold text-white">ECONOMIA DE <span class="text-green-400">R$ 87,90</span></div>
+                            <p class="text-gray-300 mt-2">Todos os conteúdos em um só lugar</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,57 +410,57 @@
     <!-- Seção Como Funciona -->
     <section class="text-center py-20">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-500">Como Funciona?</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-300">COMO FUNCIONA?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-700">
-                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">1</div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-500 border border-white/10 transform-gpu">
+                    <div class="w-12 h-12 gradient-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">1</div>
                     <h3 class="text-xl font-semibold mb-4">Você chama no WhatsApp</h3>
-                    <p class="text-gray-300">Entre em contato pelo WhatsApp para solicitar seu teste gratuito.</p>
+                    <p class="text-gray-300">Clique no botão verde e peça seu teste gratuito.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-900">
-                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">2</div>
-                    <h3 class="text-xl font-semibold mb-4">Recebe o app + login</h3>
-                    <p class="text-gray-300">Enviaremos o aplicativo e suas credenciais de acesso.</p>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-700 border border-white/10 transform-gpu">
+                    <div class="w-12 h-12 gradient-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">2</div>
+                    <h3 class="text-xl font-semibold mb-4">Receba o app + login</h3>
+                    <p class="text-gray-300">Enviaremos o aplicativo e suas credenciais em segundos.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-1100">
-                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">3</div>
-                    <h3 class="text-xl font-semibold mb-4">Testa por 4 horas</h3>
-                    <p class="text-gray-300">Aproveite 4 horas completas para testar todos os recursos.</p>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-900 border border-white/10 transform-gpu">
+                    <div class="w-12 h-12 gradient-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">3</div>
+                    <h3 class="text-xl font-semibold mb-4">Teste por 4 horas</h3>
+                    <p class="text-gray-300">Aproveite 4 horas completas para testar tudo.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-1300">
-                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">4</div>
-                    <h3 class="text-xl font-semibold mb-4">Escolhe o plano</h3>
-                    <p class="text-gray-300">Se gostar, escolha o plano que melhor atende suas necessidades.</p>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-1100 border border-white/10 transform-gpu">
+                    <div class="w-12 h-12 gradient-accent rounded-full flex items-center justify-center mx-auto mb-5 font-bold text-lg">4</div>
+                    <h3 class="text-xl font-semibold mb-4">Escolha o plano</h3>
+                    <p class="text-gray-300">Se gostar, escolha o plano ideal para você.</p>
                 </div>
             </div>
             <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-               class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-6 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:from-accent hover:to-[#2AA0FF] hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block"
+               class="gradient-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block transform-gpu hover-lift"
                target="_blank">
-                QUERO TESTAR AGORA
+                <i class="fas fa-rocket mr-2"></i> QUERO COMEÇAR MEU TESTE AGORA
             </a>
         </div>
     </section>
 
     <!-- Seção Vantagens -->
-    <section class="bg-white/5 backdrop-blur-md rounded-3xl py-16 mx-5 my-10">
+    <section class="bg-white/5 backdrop-blur-md rounded-3xl py-16 mx-5 my-10 border border-white/10">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-500">Por Que Escolher o MTSPLAY TV?</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-300">POR QUE ESCOLHER O MTSPLAY TV?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-700">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover-lift transition-all duration-300 animate-fade-in-up animation-delay-500 border border-white/10 transform-gpu">
                     <div class="text-5xl text-accent mb-5">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Ativação em menos de 60 segundos</h3>
-                    <p class="text-gray-300">Receba seu acesso imediatamente após o pagamento.</p>
+                    <h3 class="text-xl font-semibold mb-4">Ativação em 60 segundos</h3>
+                    <p class="text-gray-300">Receba seu acesso imediatamente após o contato.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-900">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover-lift transition-all duration-300 animate-fade-in-up animation-delay-700 border border-white/10 transform-gpu">
                     <div class="text-5xl text-accent mb-5">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">App incluso</h3>
-                    <p class="text-gray-300">Aplicativo próprio incluso, sem custos adicionais.</p>
+                    <p class="text-gray-300">Aplicativo próprio incluso, sem custos extras.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-1100">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover-lift transition-all duration-300 animate-fade-in-up animation-delay-900 border border-white/10 transform-gpu">
                     <div class="text-5xl text-accent mb-5">
                         <i class="fas fa-tv"></i>
                     </div>
@@ -328,115 +474,160 @@
     <!-- Streamings Section -->
     <section class="text-center py-20 relative overflow-hidden">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-500">Todos os principais streamings em um só lugar</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-300">TODOS OS PRINCIPAIS STREAMINGS EM UM SÓ LUGAR</h2>
             
             <div class="relative overflow-hidden w-full py-5">
-                <div class="flex gap-8 w-max animate-scroll-streamings">
+                <div class="flex gap-8 w-max animate-scroll-streamings transform-gpu">
                     <!-- Streaming Logos -->
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/Gt7whC6Z/disney-plus-logo.jpg" alt="Disney+" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/vZP5bFvr/C1-2.webp.png" alt="Disney+" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/dVVTCq7v/prime-video-logo.jpg" alt="Prime Video" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/XN5sk8fw/proxy-image-(3).jpg" alt="Prime Video" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/RCbDFXWC/globoplay-logo.jpg" alt="Globoplay" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/RCbDFXWC/globoplay-logo.jpg" alt="Globoplay" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/63pM6vwv/star-plus-logo.jpg" alt="Star+" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/63pM6vwv/star-plus-logo.jpg" alt="Star+" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/tgX5Dxs4/apple-tv-logo.jpg" alt="Apple TV+" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/tgX5Dxs4/apple-tv-logo.jpg" alt="Apple TV+" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/WbtbS4vS/crunchyroll-logo.jpg" alt="Crunchyroll" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/WbtbS4vS/crunchyroll-logo.jpg" alt="Crunchyroll" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
                     
                     <!-- Duplicados para loop -->
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/d1yC04h2/netflix-logo.jpg" alt="Netflix" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/Gt7whC6Z/disney-plus-logo.jpg" alt="Disney+" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/vZP5bFvr/C1-2.webp.png" alt="Disney+" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/dVVTCq7v/prime-video-logo.jpg" alt="Prime Video" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/XN5sk8fw/proxy-image-(3).jpg" alt="Prime Video" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
-                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="flex-shrink-0 w-44 bg-white/10 backdrop-blur-md rounded-xl h-32 flex items-center justify-center hover-lift transition-all duration-300 overflow-hidden border border-white/10">
+                        <img src="https://i.postimg.cc/LX9bqWkX/hbo-max-logo.jpg" alt="HBO Max" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy">
                     </div>
                 </div>
             </div>
             
-            <!-- CORREÇÃO DO BOTÃO "QUERO ACESSAR O CATÁLOGO COMPLETO" -->
             <div class="mt-12">
                 <a href="#catalogo" 
-                   class="bg-gradient-to-r from-gold to-yellow-400 text-black px-6 py-4 rounded-full font-semibold text-lg hover:from-yellow-400 hover:to-gold hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block w-full sm:w-auto text-center">
-                    QUERO ACESSAR O CATÁLOGO COMPLETO
+                   class="bg-red-btn hover:bg-red-btn-hover text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block w-full sm:w-auto text-center transform-gpu hover-lift">
+                    <i class="fas fa-film mr-2"></i> QUERO ACESSAR O CATÁLOGO COMPLETO
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Conteúdo -->
+    <!-- Seção Catálogo -->
     <section id="catalogo" class="text-center py-20 relative overflow-hidden">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-500">+3.000 Canais e Conteúdo Exclusivo</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-300">+3.000 CANAIS E CONTEÚDO EXCLUSIVO</h2>
             
             <!-- Em Alta Hoje -->
             <div class="mb-16">
                 <h3 class="text-2xl font-poppins font-bold mb-8 text-left border-l-4 border-accent pl-4">Em Alta Hoje</h3>
                 <div class="relative overflow-hidden w-full py-5">
-                    <div class="flex gap-6 w-max animate-scroll-content">
+                    <div class="flex gap-6 w-max animate-scroll-content transform-gpu">
                         <!-- Conteúdo em alta -->
-                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
-                            <img src="https://i.postimg.cc/dtPSrDjp/arcanjo-renegado.jpg" alt="Arcanjo Renegado" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/RhPrCZps/proxy-image-(1).jpg" alt="Arcanjo Renegado" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                             <div class="p-4">
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="text-lg font-semibold">Arcanjo Renegado</h4>
                                     <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">4K</span>
                                 </div>
-                                <p class="text-gray-300 text-sm">2025 • Ação • Série</p>
+                                <p class="text-gray-300 text-sm">2025 · Ação · Série</p>
                             </div>
                         </div>
                         
-                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
-                            <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/V6pGK0TQ/proxy-image-(6).jpg" alt="The Vampires Diares" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                             <div class="p-4">
                                 <div class="flex justify-between items-center mb-2">
-                                    <h4 class="text-lg font-semibold">Nossa Culpa</h4>
-                                    <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs font-bold">HDR</span>
+                                    <h4 class="text-lg font-semibold">The Vampires Diares</h4>
+                                    <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs font-bold">HD</span>
                                 </div>
-                                <p class="text-gray-300 text-sm">2025 • Drama • Romance</p>
+                                <p class="text-gray-300 text-sm">2009 · Drama · Fantasia</p>
                             </div>
                         </div>
                         
-                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                        <!-- SUPERNATURAL ADICIONADO AQUI NA 3ª POSIÇÃO -->
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/XYFgW7vT/proxy-image-(7).jpg" alt="SUPERNATURAL" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-lg font-semibold">SUPERNATURAL</h4>
+                                    <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">HD</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">2005 · Drama · Fantasia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                             <img src="https://i.postimg.cc/RVgK9DhJ/stranger-things.jpg" alt="Stranger Things" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                             <div class="p-4">
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="text-lg font-semibold">Stranger Things</h4>
                                     <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">4K</span>
                                 </div>
-                                <p class="text-gray-300 text-sm">2025 • Ficção • Série</p>
+                                <p class="text-gray-300 text-sm">2025 · Ficção · Série</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Último item do carrossel -->
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/SQH3rHFs/proxy-image-(5).jpg" alt="Superman e Louis" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-lg font-semibold">Superman e Louis</h4>
+                                    <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">4K</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">2021 · Ação · Drama</p>
                             </div>
                         </div>
                         
                         <!-- Duplicados para loop -->
-                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
-                            <img src="https://i.postimg.cc/dtPSrDjp/arcanjo-renegado.jpg" alt="Arcanjo Renegado" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/RhPrCZps/proxy-image-(1).jpg" alt="Arcanjo Renegado" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                             <div class="p-4">
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="text-lg font-semibold">Arcanjo Renegado</h4>
                                     <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">4K</span>
                                 </div>
-                                <p class="text-gray-300 text-sm">2025 • Ação • Série</p>
+                                <p class="text-gray-300 text-sm">2025 · Ação · Série</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/V6pGK0TQ/proxy-image-(6).jpg" alt="The Vampires Diares" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-lg font-semibold">The Vampires Diares</h4>
+                                    <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs font-bold">HD</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">2009 · Drama · Fantasia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-shrink-0 w-72 bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                            <img src="https://i.postimg.cc/XYFgW7vT/proxy-image-(7).jpg" alt="SUPERNATURAL" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-lg font-semibold">SUPERNATURAL</h4>
+                                    <span class="bg-accent text-white px-2 py-1 rounded text-xs font-bold">HD</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">2005 · Drama · Fantasia</p>
                             </div>
                         </div>
                     </div>
@@ -447,35 +638,35 @@
             <div class="mb-16">
                 <h3 class="text-2xl font-poppins font-bold mb-8 text-left border-l-4 border-accent pl-4">Top Séries</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/2SVqj14V/proxy-image-(9).jpg" alt="Peaky Blinders" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Peaky Blinders</h4>
-                            <p class="text-gray-300 text-sm">Crime, Drama, Ação • 2013</p>
+                            <p class="text-gray-300 text-sm">Crime, Drama, Ação · 2013</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
-                        <img src="https://i.postimg.cc/RF9VthnT/proxy-image-(10).jpg" alt="Narcos" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                        <img src="https://i.postimg.cc/V6pGK0TQ/proxy-image-(6).jpg" alt="The Vampires Diares" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
-                            <h4 class="text-lg font-semibold mb-1">Narcos</h4>
-                            <p class="text-gray-300 text-sm">Crime, Drama, Suspense • 2015</p>
+                            <h4 class="text-lg font-semibold mb-1">The Vampires Diares</h4>
+                            <p class="text-gray-300 text-sm">Drama, Fantasia, Romance · 2009</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/GttRPy3d/proxy-image-(11).jpg" alt="The Witcher" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">The Witcher</h4>
-                            <p class="text-gray-300 text-sm">Fantasia, Ação, Aventura • 2019</p>
+                            <p class="text-gray-300 text-sm">Fantasia, Ação, Aventura · 2019</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
-                        <img src="https://i.postimg.cc/K8n6MN71/proxy-image-(12).jpg" alt="The Boys" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
+                        <img src="https://i.postimg.cc/SQH3rHFs/proxy-image-(5).jpg" alt="Superman e Louis" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
-                            <h4 class="text-lg font-semibold mb-1">The Boys</h4>
-                            <p class="text-gray-300 text-sm">Ação, Super-herói, Drama • 2019</p>
+                            <h4 class="text-lg font-semibold mb-1">Superman e Louis</h4>
+                            <p class="text-gray-300 text-sm">Ação, Drama, Família · 2021</p>
                         </div>
                     </div>
                 </div>
@@ -485,35 +676,35 @@
             <div class="mb-16">
                 <h3 class="text-2xl font-poppins font-bold mb-8 text-left border-l-4 border-accent pl-4">Top Filmes</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/y8fPQN04/nossa-culpa.jpg" alt="Nossa Culpa" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Nossa Culpa</h4>
-                            <p class="text-gray-300 text-sm">Drama • 2025</p>
+                            <p class="text-gray-300 text-sm">Drama · 2025</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/DzWXBs9Q/frankenstein.jpg" alt="Frankenstein" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Frankenstein</h4>
-                            <p class="text-gray-300 text-sm">Terror • 2025</p>
+                            <p class="text-gray-300 text-sm">Terror · 2025</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/cHQhD9CN/proxy-image-(13).jpg" alt="John Wick" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">John Wick</h4>
-                            <p class="text-gray-300 text-sm">Ação, Thriller • 2014</p>
+                            <p class="text-gray-300 text-sm">Ação, Thriller · 2014</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/rsV1fq7w/proxy-image-(14).jpg" alt="O Lobo de Wall Street" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">O Lobo de Wall Street</h4>
-                            <p class="text-gray-300 text-sm">Biografia, Crime, Drama • 2013</p>
+                            <p class="text-gray-300 text-sm">Biografia, Crime, Drama · 2013</p>
                         </div>
                     </div>
                 </div>
@@ -523,35 +714,35 @@
             <div class="mb-16">
                 <h3 class="text-2xl font-poppins font-bold mb-8 text-left border-l-4 border-accent pl-4">Esportes / Futebol / UFC</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/MT7kyY88/proxy-image-(15).jpg" alt="Futebol ao Vivo" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Futebol ao Vivo</h4>
-                            <p class="text-gray-300 text-sm">Esportes • Futebol • 2025</p>
+                            <p class="text-gray-300 text-sm">Esportes · Futebol · 2025</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/qvh5sGsp/proxy-image-(16).jpg" alt="Premier League" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Premier League</h4>
-                            <p class="text-gray-300 text-sm">Esportes • Futebol Inglês • 2025</p>
+                            <p class="text-gray-300 text-sm">Esportes · Futebol Inglês · 2025</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/7Pt9K2PB/proxy-image-(17).jpg" alt="UFC Fight Night" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">UFC Fight Night</h4>
-                            <p class="text-gray-300 text-sm">Esportes • Artes Marciais • MMA • 2025</p>
+                            <p class="text-gray-300 text-sm">Esportes · Artes Marciais · MMA · 2025</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover-lift transition-all duration-300 border border-white/10">
                         <img src="https://i.postimg.cc/YCvCQTDw/proxy-image-(18).jpg" alt="Pay-Per-View" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="p-4">
                             <h4 class="text-lg font-semibold mb-1">Pay-Per-View</h4>
-                            <p class="text-gray-300 text-sm">Esportes • Combate • MMA • 2025</p>
+                            <p class="text-gray-300 text-sm">Esportes · Combate · MMA · 2025</p>
                         </div>
                     </div>
                 </div>
@@ -559,82 +750,52 @@
             
             <div class="text-center mt-8">
                 <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-                   class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:from-accent hover:to-[#2AA0FF] hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block"
+                   class="gradient-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block transform-gpu hover-lift"
                    target="_blank">
-                    QUERO ACESSAR O CATÁLOGO COMPLETO
+                    <i class="fas fa-play mr-2"></i> QUERO ACESSAR O CATÁLOGO COMPLETO
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Feedback dos Clientes -->
-    <section class="py-20 bg-white/5 backdrop-blur-md rounded-3xl mx-5 my-10">
+    <!-- Seção Provas Sociais -->
+    <section class="py-20 bg-white/5 backdrop-blur-md rounded-3xl mx-5 my-10 border border-white/10">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-500">O Que Nossos Clientes Dizem</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-l-4 border-accent animate-fade-in-up animation-delay-700">
-                    <div class="text-yellow-400 mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-4">"Instalei em 5 minutos e já estava funcionando perfeitamente! A qualidade da imagem é incrível e o suporte foi muito ágil."</p>
-                    <p class="font-semibold">- Carlos, SP</p>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-300">PROVAS REAIS DE SATISFAÇÃO</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 cursor-pointer hover-lift transition-all duration-300" onclick="openModal('https://i.postimg.cc/3wVXcnPr/Screenshot-2025-11-25-19-53-50-897-com-whatsapp-w4b.jpg')">
+                    <img src="https://i.postimg.cc/3wVXcnPr/Screenshot-2025-11-25-19-53-50-897-com-whatsapp-w4b.jpg" alt="Prova Social 1" class="w-full h-auto rounded-xl">
                 </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-l-4 border-accent animate-fade-in-up animation-delay-900">
-                    <div class="text-yellow-400 mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-4">"Suporte excelente, resolveram meu problema em menos de 10 minutos. Recomendo para todos que querem qualidade e agilidade."</p>
-                    <p class="font-semibold">- Mariana, RJ</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-l-4 border-accent animate-fade-in-up animation-delay-1100">
-                    <div class="text-yellow-400 mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-4">"Qualidade de imagem incrível, muito melhor que a TV a cabo que eu tinha. Conteúdo sempre atualizado e zero travamentos."</p>
-                    <p class="font-semibold">- Roberto, MG</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border-l-4 border-accent animate-fade-in-up animation-delay-1300">
-                    <div class="text-yellow-400 mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-4">"Melhor app que já usei. Instalei em 3 TVs e funciona perfeitamente em todas. Ativação foi super rápida como prometeram."</p>
-                    <p class="font-semibold">- Ana, BA</p>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 cursor-pointer hover-lift transition-all duration-300" onclick="openModal('https://i.postimg.cc/mgr7Zv4f/Screenshot-2025-11-24-11-03-31-903-com-whatsapp-w4b.jpg')">
+                    <img src="https://i.postimg.cc/mgr7Zv4f/Screenshot-2025-11-24-11-03-31-903-com-whatsapp-w4b.jpg" alt="Prova Social 2" class="w-full h-auto rounded-xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Planos -->
+    <!-- Seção Planos com Timer Discreto -->
     <section id="planos" class="text-center py-20">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-500">Planos Que Cabem No Seu Bolso</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 animate-fade-in-up animation-delay-300">PLANOS QUE CABEM NO SEU BOLSO</h2>
             
+            <!-- Timer Discreto -->
+            <div class="bg-yellow-500/20 border border-yellow-500/50 rounded-2xl p-4 mb-8 max-w-md mx-auto backdrop-blur-md">
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-clock text-yellow-400"></i>
+                    <span class="font-semibold">Oferta especial por tempo limitado</span>
+                </div>
+            </div>
+
             <!-- Comparativo de Preços -->
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 mb-12 max-w-4xl mx-auto">
-                <h3 class="text-xl font-bold mb-6">💰 Economize até R$ 58,90 com nossos planos!</h3>
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 mb-12 max-w-4xl mx-auto border border-white/10 animate-scale-in animation-delay-500">
+                <h3 class="text-xl font-bold mb-6">💰 ECONOMIZE ATÉ R$ 58,90 COM NOSSOS PLANOS!</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div class="text-center p-4 bg-white/5 rounded-xl">
+                    <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
                         <div class="font-bold text-lg">Plano Mensal</div>
                         <div class="text-2xl font-bold text-accent mt-2">R$ 29,90</div>
                         <div class="text-gray-400 text-xs">por mês</div>
                     </div>
-                    <div class="text-center p-4 bg-green-500/20 border border-green-500 rounded-xl">
+                    <div class="text-center p-4 bg-green-500/20 border border-green-500/50 rounded-xl">
                         <div class="font-bold text-lg">Plano Trimestral</div>
                         <div class="text-2xl font-bold text-green-400 mt-2">R$ 79,90</div>
                         <div class="text-gray-400 text-xs">economize R$ 9,80</div>
@@ -648,7 +809,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-700">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-700 border border-white/10 transform-gpu">
                     <h3 class="text-2xl font-bold mb-4">Plano Mensal</h3>
                     <div class="text-4xl font-bold mb-6">R$ 29,90<span class="text-lg font-normal">/mês</span></div>
                     <ul class="text-left mb-8 space-y-3">
@@ -658,19 +819,19 @@
                         <li class="flex items-center gap-2"><i class="fas fa-check text-accent"></i> Qualidade 4K</li>
                     </ul>
                     <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Mensal do MTSPLAY TV." 
-                       class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-6 py-3 rounded-full font-semibold hover:from-accent hover:to-[#2AA0FF] transition-all duration-300 shadow-lg block text-center"
+                       class="gradient-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 shadow-lg block text-center transform-gpu hover-lift"
                        target="_blank">
-                        Ativar Plano — R$ 29,90
+                        Ativar Plano ‒ R$ 29,90
                     </a>
                 </div>
                 
-                <div class="bg-gradient-to-b from-accent to-[#2AA0FF] rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-900 relative transform scale-105">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gold text-black px-4 py-1 rounded-full font-bold text-sm">
+                <div class="gradient-accent rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-900 relative transform scale-105 border border-accent/50 transform-gpu">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 gradient-gold text-black px-4 py-1 rounded-full font-bold text-sm">
                         MAIS VENDIDO
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Plano Trimestral</h3>
                     <div class="text-4xl font-bold mb-6">R$ 79,90<span class="text-lg font-normal">/3 meses</span></div>
-                    <div class="bg-green-500/20 border border-green-500 rounded-lg p-3 mb-4">
+                    <div class="bg-green-500/20 border border-green-500/50 rounded-lg p-3 mb-4">
                         <p class="text-green-300 font-semibold text-sm">💰 Economize R$ 9,80</p>
                     </div>
                     <ul class="text-left mb-8 space-y-3">
@@ -681,13 +842,13 @@
                         <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> +1 mês grátis por indicação</li>
                     </ul>
                     <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Trimestral do MTSPLAY TV." 
-                       class="bg-gold text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition-all duration-300 shadow-lg block text-center"
+                       class="gradient-gold text-black px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 shadow-lg block text-center transform-gpu hover-lift"
                        target="_blank">
-                        Ativar Plano — R$ 79,90
+                        Ativar Plano ‒ R$ 79,90
                     </a>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up animation-delay-1100">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover-lift transition-all duration-300 animate-fade-in-up animation-delay-1100 border border-white/10 transform-gpu">
                     <h3 class="text-2xl font-bold mb-4">Plano Semestral</h3>
                     <div class="text-4xl font-bold mb-6">R$ 139,90<span class="text-lg font-normal">/6 meses</span></div>
                     <div class="bg-yellow-500/20 border border-yellow-500 rounded-lg p-3 mb-4">
@@ -701,16 +862,16 @@
                         <li class="flex items-center gap-2"><i class="fas fa-check text-accent"></i> 5 indicações = 1 mês grátis</li>
                     </ul>
                     <a href="https://wa.me/5585984377361?text=Olá! Quero assinar o Plano Semestral do MTSPLAY TV." 
-                       class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-6 py-3 rounded-full font-semibold hover:from-accent hover:to-[#2AA0FF] transition-all duration-300 shadow-lg block text-center"
+                       class="gradient-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 shadow-lg block text-center transform-gpu hover-lift"
                        target="_blank">
-                        Ativar Plano — R$ 139,90
+                        Ativar Plano ‒ R$ 139,90
                     </a>
                 </div>
             </div>
             
             <!-- Formas de Pagamento -->
-            <div class="mt-12 bg-white/5 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto">
-                <h3 class="text-xl font-bold mb-4 text-center">💳 Formas de Pagamento</h3>
+            <div class="mt-12 bg-white/5 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/10 animate-scale-in animation-delay-1300">
+                <h3 class="text-xl font-bold mb-4 text-center">💳 PAGAMENTO 100% SEGURO</h3>
                 <div class="flex justify-center gap-6 flex-wrap">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-qrcode text-green-400 text-xl"></i>
@@ -725,34 +886,34 @@
                         <span class="text-sm">Boleto</span>
                     </div>
                 </div>
-                <p class="text-center text-gray-400 text-sm mt-4">Pagamento 100% seguro • Parcelamento em até 12x</p>
+                <p class="text-center text-gray-400 text-sm mt-4">Transações protegidas 💚 Parcelamento em até 12x</p>
             </div>
             
-            <p class="mt-8 text-gray-300">
-                Pagamento seguro via Pix — Suporte imediato — Cancelamento a qualquer momento
+            <p class="mt-8 text-gray-300 animate-fade-in-up animation-delay-1500">
+                Pagamento seguro via Pix ‒ Suporte imediato ‒ Cancelamento a qualquer momento
             </p>
             
             <div class="mt-12">
                 <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-                   class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:from-accent hover:to-[#2AA0FF] hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block"
+                   class="gradient-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block transform-gpu hover-lift"
                    target="_blank">
-                    QUERO TESTAR AGORA
+                    <i class="fas fa-bolt mr-2"></i> QUERO TESTAR AGORA
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Seção Revendedores -->
-    <section class="text-center py-20 bg-white/5 backdrop-blur-md rounded-3xl mx-5 my-10">
+    <section class="text-center py-20 bg-white/5 backdrop-blur-md rounded-3xl mx-5 my-10 border border-white/10">
         <div class="container mx-auto px-5">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-6 animate-fade-in-up animation-delay-500">Quer Revender o MTSPLAY TV?</h2>
-            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto animate-fade-in-up animation-delay-700">
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-6 animate-fade-in-up animation-delay-300">QUER REVENDER O MTSPLAY TV?</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto animate-fade-in-up animation-delay-500">
                 Ganhe renda extra revendendo nosso serviço. Planos especiais para revendedores com descontos exclusivos.
             </p>
             <a href="https://wa.me/5585984377361?text=Olá! Tenho interesse em revender o MTSPLAY TV." 
-               class="bg-gold text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-500 transition-all duration-300 shadow-lg inline-block"
+               class="gradient-gold text-black px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 shadow-lg inline-block transform-gpu hover-lift"
                target="_blank">
-                FALE CONOSCO SOBRE REVENDAS
+                <i class="fas fa-store mr-2"></i> FALE CONOSCO SOBRE REVENDAS
             </a>
         </div>
     </section>
@@ -760,25 +921,25 @@
     <!-- FAQ Section -->
     <section class="py-20">
         <div class="container mx-auto px-5 max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-500">Perguntas Frequentes</h2>
+            <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center animate-fade-in-up animation-delay-300">PERGUNTAS FREQUENTES</h2>
             
             <div class="space-y-4">
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-700">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-500 border border-white/10">
                     <h3 class="text-xl font-semibold mb-3">Como funciona o teste gratuito?</h3>
                     <p class="text-gray-300">O teste gratuito de 4 horas é liberado imediatamente após o contato via WhatsApp. Você recebe acesso completo a todos os canais e conteúdos durante esse período para testar a qualidade e estabilidade do serviço sem nenhum custo.</p>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-900">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-700 border border-white/10">
                     <h3 class="text-xl font-semibold mb-3">Quanto custa depois do teste gratuito?</h3>
                     <p class="text-gray-300">Após o teste, você pode escolher entre nossos planos mensal (R$ 29,90), trimestral (R$ 79,90) ou semestral (R$ 139,90). Não há cobrança automática após o teste - a assinatura só é feita se você decidir continuar com o serviço.</p>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-1100">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-900 border border-white/10">
                     <h3 class="text-xl font-semibold mb-3">Como faço para cancelar?</h3>
                     <p class="text-gray-300">O cancelamento pode ser feito a qualquer momento através do nosso suporte via WhatsApp. Não há fidelidade e o reembolso é proporcional caso você cancele no meio de um período já pago. Nosso time está disponível 24h para ajudar.</p>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-1300">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-fade-in-up animation-delay-1100 border border-white/10">
                     <h3 class="text-xl font-semibold mb-3">Em quais dispositivos o MTSPLAY funciona?</h3>
                     <p class="text-gray-300">O MTSPLAY TV funciona em Smart TVs (todas as marcas), TV Box, Android, iPhone, tablets, notebooks e PCs. Fornecemos o aplicativo e instruções de instalação para cada dispositivo. Suporte técnico incluso para ajudar na configuração.</p>
                 </div>
@@ -786,20 +947,20 @@
             
             <div class="text-center mt-12">
                 <a href="https://wa.me/5585984377361?text=Olá! Quero testar o MTSPLAY TV." 
-                   class="bg-gradient-to-r from-[#2AA0FF] to-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:from-accent hover:to-[#2AA0FF] hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block"
+                   class="gradient-accent text-white px-8 py-4 rounded-full font-semibold text-lg animate-pulse-custom hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg inline-block transform-gpu hover-lift"
                    target="_blank">
-                    QUERO TESTAR AGORA
+                    <i class="fas fa-comments mr-2"></i> QUERO TESTAR AGORA
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary/95 py-12">
+    <footer class="bg-primary/95 py-12 border-t border-white/10">
         <div class="container mx-auto px-5">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV" class="h-12 mb-4">
+                    <img src="https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png" alt="MTSPLAY TV Logo" class="h-12 mb-4">
                     <p class="text-gray-400">Entretenimento premium sem limites para você e sua família.</p>
                 </div>
                 <div>
@@ -837,17 +998,18 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
-                MTSPLAY TV — Entretenimento Sem Limites © 2025 — Política de Privacidade — Termos de Uso
+                MTSPLAY TV ‒ Entretenimento Sem Limites © 2025 ‒ Política de Privacidade ‒ Termos de Uso
             </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
+        // Header scroll effect otimizado
         const topbar = document.getElementById('topbar');
         let lastScrollY = window.scrollY;
+        let ticking = false;
         
-        window.addEventListener('scroll', () => {
+        function updateHeader() {
             if (window.scrollY > 50) {
                 topbar.classList.add('scrolled');
                 
@@ -862,29 +1024,32 @@
             }
             
             lastScrollY = window.scrollY;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
         });
 
-        // Notification Toast
+        // Notification Toast - Otimizado
         const notificationToast = document.getElementById('notificationToast');
         const notifications = [
             "João de São Paulo acabou de ativar o TESTE GRÁTIS",
-            "Maria do Rio acabou de comprar Plano Mensal — R$29,90",
-            "Carlos de Minas ativou o Plano Trimestral — R$79,90",
+            "Maria do Rio acabou de comprar Plano Mensal ‒ R$29,90",
+            "Carlos de Minas ativou o Plano Trimestral ‒ R$79,90",
             "Ana de Brasília acabou de testar 4h grátis",
-            "Pedro de Salvador comprou Plano Semestral — R$139,90",
+            "Pedro de Salvador comprou Plano Semestral ‒ R$139,90",
             "Juliana de Curitiba ativou teste gratuito",
-            "Ricardo de Porto Alegre comprou Plano Mensal — R$29,90",
-            "Fernanda de Belo Horizonte ativou Plano Trimestral — R$79,90",
+            "Ricardo de Porto Alegre comprou Plano Mensal ‒ R$29,90",
+            "Fernanda de Belo Horizonte ativou Plano Trimestral ‒ R$79,90",
             "Marcos de Recife acabou de testar 4h grátis",
-            "Patrícia de Fortaleza comprou Plano Semestral — R$139,90",
-            "Rafael de Belém ativou o Plano Mensal",
-            "Carla de Manaus acabou de testar 4h grátis",
-            "Diego de Goiânia comprou Plano Trimestral",
-            "Larissa de Florianópolis ativou teste gratuito"
+            "Patrícia de Fortaleza comprou Plano Semestral ‒ R$139,90"
         ];
         
         let notificationIndex = 0;
-        let isFirstThree = true;
         
         function showRandomNotification() {
             const notificationText = document.querySelector('.notification-text');
@@ -903,19 +1068,12 @@
                 
                 notificationIndex = (notificationIndex + 1) % notifications.length;
                 
-                let nextInterval;
-                if (isFirstThree && notificationIndex < 3) {
-                    nextInterval = 5000;
-                } else {
-                    isFirstThree = false;
-                    nextInterval = Math.floor(Math.random() * 8000) + 7000;
-                }
-                
-                setTimeout(showRandomNotification, nextInterval);
+                setTimeout(showRandomNotification, Math.floor(Math.random() * 10000) + 8000);
                 
             }, 5000);
         }
         
+        // Iniciar notificações após 3 segundos
         setTimeout(showRandomNotification, 3000);
 
         // Atividade em tempo real
@@ -931,6 +1089,24 @@
         }
         
         setInterval(updateLiveActivity, 30000);
+
+        // Contador de pessoas comprando agora
+        const livePurchasesElement = document.getElementById('livePurchases');
+        let livePurchasesCount = 15;
+
+        function updateLivePurchases() {
+            // Aleatoriamente aumenta ou diminui entre 1 e 3
+            const change = Math.floor(Math.random() * 3) + 1; // 1, 2 ou 3
+            if (Math.random() > 0.5) {
+                livePurchasesCount += change;
+            } else {
+                livePurchasesCount = Math.max(10, livePurchasesCount - change); // mínimo 10
+            }
+            livePurchasesElement.textContent = `${livePurchasesCount} pessoas comprando agora`;
+        }
+
+        // Atualizar a cada 5 segundos
+        setInterval(updateLivePurchases, 5000);
 
         // Botão Voltar ao Topo
         const backToTop = document.getElementById('backToTop');
@@ -966,7 +1142,7 @@
             });
         });
 
-        // Intersection Observer para animações ao scroll
+        // Intersection Observer para animações ao scroll - Otimizado
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -976,12 +1152,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target); // Para de observar após a animação
                 }
             });
         }, observerOptions);
 
         // Observar elementos com animação
-        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+        document.querySelectorAll('.animate-fade-in-up, .animate-scale-in, .animate-slide-in-right').forEach(el => {
             observer.observe(el);
         });
 
@@ -1002,27 +1179,44 @@
             carouselObserver.observe(carousel);
         });
 
-        // Popup de oferta ao sair
-        document.addEventListener('mouseout', (e) => {
-            if (e.clientY < 0) {
-                // Criar popup de oferta especial
-                const popup = document.createElement('div');
-                popup.className = 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4';
-                popup.innerHTML = `
-                    <div class="bg-white text-black rounded-2xl p-8 max-w-md text-center">
-                        <h3 class="text-2xl font-bold mb-4">🚨 OFERTA ESPECIAL!</h3>
-                        <p class="mb-4">Não saia ainda! Ganhe <strong>10% DE DESCONTO</strong> no seu primeiro plano!</p>
-                        <p class="text-sm text-gray-600 mb-6">Use o cupom: <code class="bg-yellow-200 px-2 py-1 rounded">PRIMEIRACOMPRA</code></p>
-                        <div class="flex gap-4 justify-center">
-                            <button onclick="this.closest('.fixed').remove()" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">Recusar</button>
-                            <a href="https://wa.me/5585984377361?text=Olá! Quero usar o cupom PRIMEIRACOMPRA no MTSPLAY TV." 
-                               class="px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent-hover"
-                               target="_blank">Quero o Desconto!</a>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(popup);
+        // Modal para provas sociais
+        function openModal(src) {
+            const modal = document.getElementById('proofModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = src;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Previne scroll
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('proofModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura scroll
+        }
+
+        // Fechar modal ao clicar fora da imagem
+        document.getElementById('proofModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
             }
+        });
+
+        // Preload de imagens críticas
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        // Pré-carregar imagens importantes
+        window.addEventListener('load', () => {
+            const criticalImages = [
+                'https://i.postimg.cc/vThd7tpp/1000616489-removebg-preview.png',
+                'https://i.postimg.cc/8P4w8zVq/tv-background.jpg',
+                'https://i.postimg.cc/3wVXcnPr/Screenshot-2025-11-25-19-53-50-897-com-whatsapp-w4b.jpg',
+                'https://i.postimg.cc/mgr7Zv4f/Screenshot-2025-11-24-11-03-31-903-com-whatsapp-w4b.jpg'
+            ];
+            
+            criticalImages.forEach(preloadImage);
         });
     </script>
 </body>
